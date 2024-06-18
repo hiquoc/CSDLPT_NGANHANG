@@ -24,9 +24,6 @@ namespace CSDLPT
 
         private void frmGoiRut_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'DS.GD_GOIRUT' table. You can move, or remove it, as needed.
-
-            // TODO: This line of code loads data into the 'DS.TaiKhoan' table. You can move, or remove it, as needed.
 
             DS.EnforceConstraints = false;
             this.GR_TKTableAdapter.Connection.ConnectionString = Program.connstr;

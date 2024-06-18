@@ -32,32 +32,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DevExpress.BonusSkins.v21.2" />
-    <Reference Include="DevExpress.Charts.v21.2.Core, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.CodeParser.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Data.Desktop.v21.2" />
-    <Reference Include="DevExpress.Data.v21.2" />
-    <Reference Include="DevExpress.DataAccess.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Office.v21.2.Core, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Pdf.v21.2.Core, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.PivotGrid.v21.2.Core, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Printing.v21.2.Core" />
-    <Reference Include="DevExpress.RichEdit.v21.2.Core, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.RichEdit.v21.2.Export, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Utils.v21.2" />
-    <Reference Include="DevExpress.Utils.v21.2.UI, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Xpo.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraBars.v21.2" />
-    <Reference Include="DevExpress.Sparkline.v21.2.Core" />
-    <Reference Include="DevExpress.XtraCharts.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraEditors.v21.2" />
-    <Reference Include="DevExpress.Drawing.v21.2" />
-    <Reference Include="DevExpress.XtraGauges.v21.2.Core, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraGrid.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraLayout.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraPrinting.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraReports.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraReports.v21.2.Extensions, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.BonusSkins.v23.2" />
+    <Reference Include="DevExpress.Data.Desktop.v23.2" />
+    <Reference Include="DevExpress.Data.v23.2" />
+    <Reference Include="DevExpress.Printing.v23.2.Core" />
+    <Reference Include="DevExpress.Utils.v23.2" />
+    <Reference Include="DevExpress.XtraBars.v23.2" />
+    <Reference Include="DevExpress.Sparkline.v23.2.Core" />
+    <Reference Include="DevExpress.XtraEditors.v23.2" />
+    <Reference Include="DevExpress.Drawing.v23.2" />
+    <Reference Include="DevExpress.XtraGrid.v23.2, Version=23.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v23.2, Version=23.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v23.2, Version=23.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -96,18 +82,6 @@
     <Compile Include="frmKhachHang.Designer.cs">
       <DependentUpon>frmKhachHang.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmLietKeKH.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmLietKeKH.Designer.cs">
-      <DependentUpon>frmLietKeKH.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmLietKeTK.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmLietKeTK.Designer.cs">
-      <DependentUpon>frmLietKeTK.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmNhanVien.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,12 +106,6 @@
     <Compile Include="frmSaoKeGD.Designer.cs">
       <DependentUpon>frmSaoKeGD.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSaoKeGDUser.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmSaoKeGDUser.Designer.cs">
-      <DependentUpon>frmSaoKeGDUser.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmTaoLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,24 +120,6 @@
     <Compile Include="frmTaoTKKH.Designer.cs">
       <DependentUpon>frmTaoTKKH.cs</DependentUpon>
     </Compile>
-    <Compile Include="XRPLietKeKH.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="XRPLietKeKH.Designer.cs">
-      <DependentUpon>XRPLietKeKH.cs</DependentUpon>
-    </Compile>
-    <Compile Include="XRPLietKeTK.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="XRPLietKeTK.Designer.cs">
-      <DependentUpon>XRPLietKeTK.cs</DependentUpon>
-    </Compile>
-    <Compile Include="XRPSaoKeGD.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="XRPSaoKeGD.Designer.cs">
-      <DependentUpon>XRPSaoKeGD.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="frmChuyenTien.resx">
       <DependentUpon>frmChuyenTien.cs</DependentUpon>
     </EmbeddedResource>
@@ -179,12 +129,6 @@
     <EmbeddedResource Include="frmKhachHang.resx">
       <DependentUpon>frmKhachHang.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmLietKeKH.resx">
-      <DependentUpon>frmLietKeKH.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmLietKeTK.resx">
-      <DependentUpon>frmLietKeTK.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmNhanVien.resx">
       <DependentUpon>frmNhanVien.cs</DependentUpon>
     </EmbeddedResource>
@@ -193,12 +137,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmSaoKeGD.resx">
-      <DependentUpon>frmSaoKeGD.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmSaoKeGDUser.resx">
-      <DependentUpon>frmSaoKeGDUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTaoLogin.resx">
       <DependentUpon>frmTaoLogin.cs</DependentUpon>
@@ -215,15 +153,6 @@
     </Compile>
     <EmbeddedResource Include="frmTaoTKKH.resx">
       <DependentUpon>frmTaoTKKH.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="XRPLietKeKH.resx">
-      <DependentUpon>XRPLietKeKH.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="XRPLietKeTK.resx">
-      <DependentUpon>XRPLietKeTK.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="XRPSaoKeGD.resx">
-      <DependentUpon>XRPSaoKeGD.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <None Include="DS.xsc">

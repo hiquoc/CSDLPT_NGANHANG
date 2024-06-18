@@ -11,6 +11,7 @@ namespace CSDLPT
         int vitri = 0;
         string macn = "";
         bool btn_Them_clicked = false;
+        string tk;
         public frmNhanVien()
         {
             InitializeComponent();
@@ -120,7 +121,7 @@ namespace CSDLPT
             panelControl2.Enabled = false;
 
             btn_Them.Enabled = btn_Sua.Enabled = btn_Xoa.Enabled = btn_Refresh.Enabled = btn_ChuyenCN.Enabled = btn_Thoat.Enabled = true;
-            btn_Ghi.Enabled = btn_PhucHoi.Enabled = false;
+            btn_Ghi.Enabled = btn_PhucHoi.Enabled = btnXacNhan.Enabled = false;
             btn_Them_clicked = false;
             try
             {
@@ -186,24 +187,61 @@ namespace CSDLPT
             {
                 try
                 {
-                    bdsNV.RemoveCurrent();
-                    this.NhanVienTableAdapter.Connection.ConnectionString = Program.connstr;
-                    this.NhanVienTableAdapter.Update(this.DS.NhanVien);
-                    MessageBox.Show("Xoá thành công !", "", MessageBoxButtons.OK);
+                    string strlenh1 = "DECLARE @table1 TABLE " +
+                                    "([Tai khoan] NVARCHAR(10)," +
+                                    "[Ma nhan vien] NVARCHAR(10)," +
+                                    "HOTEN NVARCHAR(50)," +
+                                    "Nhom NVARCHAR(20));" +
+                                    "INSERT INTO @table1 " +
+                                    "EXEC frmTaoLogin_LayTKLG;" +
+                                    "SELECT * FROM @table1 WHERE [Ma nhan vien] = '" + textMaNV.Text.TrimEnd() + "'";
+
+                    using (SqlDataReader myReader = Program.ExecSqlDataReader(strlenh1))
+                    {
+                        if (myReader != null && myReader.HasRows)
+                        {
+                            myReader.Read();
+                            tk = myReader.GetString(0);
+                            string cml1 = "EXEC SP_DROPUSER " + manv + "; \r\nEXEC SP_DROPLOGIN " + tk + ";";
+                            Program.ExecSqlNonQuery(cml1);
+                            bdsNV.RemoveCurrent();
+                            this.NhanVienTableAdapter.Connection.ConnectionString = Program.connstr;
+                            this.NhanVienTableAdapter.Update(this.DS.NhanVien);
+                            MessageBox.Show("Xoá thành công !", "", MessageBoxButtons.OK);
+                        }
+                        else
+                        {
+                            bdsNV.RemoveCurrent();
+                            this.NhanVienTableAdapter.Connection.ConnectionString = Program.connstr;
+                            this.NhanVienTableAdapter.Update(this.DS.NhanVien);
+                            MessageBox.Show("Xoá thành công !", "", MessageBoxButtons.OK);
+                        }
+                    }
                 }
-                catch (Exception ex)
+                catch (SqlException ex)
                 {
                     MessageBox.Show("Có lỗi khi xóa nhân viên!" + ex.Message, "", MessageBoxButtons.OK);
                     this.NhanVienTableAdapter.Fill(this.DS.NhanVien);
                     bdsNV.Position = bdsNV.Find("MANV", manv);
                     return;
                 }
+                finally
+                {
+                    Program.conn.Close();
+                }
+
             }
             if (bdsNV.Count == 0) btn_Xoa.Enabled = false;
         }
 
         private bool kiemtra()
         {
+            String TTX = ((DataRowView)bdsNV[bdsNV.Position])["TrangThaiXoa"].ToString().TrimEnd();
+            if (TTX == "1")
+            {
+                MessageBox.Show("Nhân viên không có ở chi nhánh này!", "", MessageBoxButtons.OK);
+                return false;
+            }
             String manv = ((DataRowView)bdsNV[bdsNV.Position])["MANV"].ToString().TrimEnd();
             if (textMaNV.Text.Trim() == "")
             {
@@ -217,7 +255,7 @@ namespace CSDLPT
                 textHo.Focus();
                 return false;
             }
-            if (!textHo.Text.All(Char.IsLetter))
+            if (!textHo.Text.Split(' ').All(word => word.All(Char.IsLetter)))
             {
                 MessageBox.Show("Họ nhân viên không hợp lệ!", "", MessageBoxButtons.OK);
                 textHo.Focus();
@@ -257,6 +295,12 @@ namespace CSDLPT
             if (textDiaChi.Text.Trim() == "")
             {
                 MessageBox.Show("Địa chỉ nhân viên không được để trống!", "", MessageBoxButtons.OK);
+                textDiaChi.Focus();
+                return false;
+            }
+            if (cmbPhai.Text.Trim() != "Nam" && cmbPhai.Text.Trim() != "Nữ")
+            {
+                MessageBox.Show("Phái nhân viên không hợp lệ!", "", MessageBoxButtons.OK);
                 textDiaChi.Focus();
                 return false;
             }
@@ -335,7 +379,7 @@ namespace CSDLPT
                 return;
             }
             btn_Them.Enabled = btn_Sua.Enabled = btn_Xoa.Enabled = btn_Refresh.Enabled = btn_Thoat.Enabled = true;
-            btn_Ghi.Enabled = btn_PhucHoi.Enabled = btnChuyenCN.Enabled = panelControl2.Enabled = false;
+            btn_Ghi.Enabled = btn_PhucHoi.Enabled = btnChuyenCN.Enabled = panelControl2.Enabled = btnXacNhan.Enabled = false;
             gcNV.Enabled = true;
             btn_Them_clicked = false;
         }
@@ -347,6 +391,7 @@ namespace CSDLPT
             label2.Enabled = textMaNVMoi.Enabled = btnXacNhan.Enabled = true;
             btnChuyenCN.Enabled = false;
             int ma = 0;
+
             try
             {
                 string strlenh1 = "SELECT MaNV = ISNULL(MAX(CAST(SUBSTRING(MANV, 3, LEN(MANV) - 2) AS INT)), 0) FROM LINK1.NGANHANG.DBO.NhanVien";
@@ -377,6 +422,8 @@ namespace CSDLPT
             {
                 Program.conn.Close();
             }
+
+
         }
 
         private void btnXacNhan_Click(object sender, EventArgs e)
@@ -447,11 +494,49 @@ namespace CSDLPT
                     else
                     {
                         MessageBox.Show("Có lỗi xảy ra khi thực thi câu lệnh SQL.");
+                        return;
+                    }
+                    try
+                    {
+                        string strlenh1 = "DECLARE @table1 TABLE " +
+                                        "([Tai khoan] NVARCHAR(10)," +
+                                        "[Ma nhan vien] NVARCHAR(10)," +
+                                        "HOTEN NVARCHAR(50)," +
+                                        "Nhom NVARCHAR(20));" +
+                                        "INSERT INTO @table1 " +
+                                        "EXEC frmTaoLogin_LayTKLG;" +
+                                        "SELECT * FROM @table1 WHERE [Ma nhan vien] = '" + maNhanVien + "'";
+
+                        using (SqlDataReader myReader = Program.ExecSqlDataReader(strlenh1))
+                        {
+                            if (myReader != null && myReader.HasRows)
+                            {
+                                myReader.Read();
+                                tk = myReader.GetString(0);
+                                string cml1 = "EXEC SP_DROPUSER " + maNhanVien + "; \r\nEXEC SP_DROPLOGIN " + tk + ";";
+                                Program.ExecSqlNonQuery(cml1);
+                                this.NhanVienTableAdapter.Connection.ConnectionString = Program.connstr;
+                                this.NhanVienTableAdapter.Update(this.DS.NhanVien);
+                            }
+                            else
+                            {
+                                this.NhanVienTableAdapter.Connection.ConnectionString = Program.connstr;
+                                this.NhanVienTableAdapter.Update(this.DS.NhanVien);
+                            }
+                        }
+                    }
+                    catch (SqlException ex)
+                    {
+                    }
+                    finally
+                    {
+                        Program.conn.Close();
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Có lỗi xảy ra! " + ex.Message);
+                    MessageBox.Show("Có lỗi xảy ra! ");
+                    return;
                 }
             }
             else

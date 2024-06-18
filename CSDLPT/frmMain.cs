@@ -24,20 +24,21 @@ namespace CSDLPT
                 case "NganHang":
                     rib_QuanLy.Visible = true;
                     ribBaoCao.Visible = true;
+                    ribSaoKe.Visible = false;
                     Program.frmChinh.btn_TaoTK.Enabled = true;
                     break;
                 case "ChiNhanh":
                     rib_QuanLy.Visible = true;
                     ribNghiepVu.Visible = true;
-                    ribBaoCao.Visible = false;
+                    ribBaoCao.Visible = true;
+                    ribSaoKe.Visible = false;
                     Program.frmChinh.btn_TaoTK.Enabled = true;
                     break;
                 case "KhachHang":
                     rib_QuanLy.Visible = false;
                     ribNghiepVu.Visible = false;
-                    ribBaoCao.Visible = true;
-                    Program.frmChinh.btnLietKeTK.Enabled = false;
-                    Program.frmChinh.btnLietKeKH.Enabled = false;
+                    ribBaoCao.Visible = false;
+                    ribSaoKe.Visible = true;
                     Program.frmChinh.btn_TaoTK.Enabled = false;
                     break;
             }
@@ -149,6 +150,68 @@ namespace CSDLPT
             else
             {
                 frmChuyenTien f = new frmChuyenTien();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void btn_TaoTK_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = CheckExists(typeof(frmTaoLogin));
+            if (frm != null) frm.Activate();
+            else
+            {
+                frmTaoLogin f = new frmTaoLogin();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+
+
+        private void btnSaoKeGD_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = CheckExists(typeof(frmSaoKeGD));
+            if (frm != null) frm.Activate();
+            else
+            {
+                frmSaoKeGD f = new frmSaoKeGD();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void btnSaoKe_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = CheckExists(typeof(frmSaoKeGDUser));
+            if (frm != null) frm.Activate();
+            else
+            {
+                frmSaoKeGDUser f = new frmSaoKeGDUser();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void btnLietKeTK_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = CheckExists(typeof(frmLietKeTK));
+            if (frm != null) frm.Activate();
+            else
+            {
+                frmLietKeTK f = new frmLietKeTK();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void btnLietKeKH_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = CheckExists(typeof(frmLietKeKH));
+            if (frm != null) frm.Activate();
+            else
+            {
+                frmLietKeKH f = new frmLietKeKH();
                 f.MdiParent = this;
                 f.Show();
             }

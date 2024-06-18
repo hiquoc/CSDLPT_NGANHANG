@@ -45,6 +45,8 @@
             this.btnSaoKeGD = new DevExpress.XtraBars.BarButtonItem();
             this.btnLietKeTK = new DevExpress.XtraBars.BarButtonItem();
             this.btnLietKeKH = new DevExpress.XtraBars.BarButtonItem();
+            this.btnSaoKeGDUser = new DevExpress.XtraBars.BarButtonItem();
+            this.btnSaoKe = new DevExpress.XtraBars.BarButtonItem();
             this.rib_HeThong = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rib_QuanLy = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -53,6 +55,8 @@
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribBaoCao = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribSaoKe = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.MANV = new System.Windows.Forms.ToolStripStatusLabel();
@@ -61,6 +65,7 @@
             this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.btnTransactionReport = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
             this.statusStrip1.SuspendLayout();
@@ -72,6 +77,7 @@
             this.ribbonControl1.ExpandCollapseItem.Id = 0;
             this.ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbonControl1.ExpandCollapseItem,
+            this.ribbonControl1.SearchEditItem,
             this.btn_DangNhap,
             this.btn_DangXuat,
             this.barButtonItem2,
@@ -85,17 +91,20 @@
             this.btnChuyenTien,
             this.btnSaoKeGD,
             this.btnLietKeTK,
-            this.btnLietKeKH});
+            this.btnLietKeKH,
+            this.btnSaoKeGDUser,
+            this.btnSaoKe});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.ribbonControl1.MaxItemId = 19;
+            this.ribbonControl1.MaxItemId = 22;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.OptionsMenuMinWidth = 550;
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rib_HeThong,
             this.rib_QuanLy,
             this.ribNghiepVu,
-            this.ribBaoCao});
+            this.ribBaoCao,
+            this.ribSaoKe});
             this.ribbonControl1.Size = new System.Drawing.Size(1360, 193);
             // 
             // btn_DangNhap
@@ -132,6 +141,7 @@
             this.btn_TaoTK.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btn_TaoTK.ImageOptions.LargeImage")));
             this.btn_TaoTK.LargeWidth = 100;
             this.btn_TaoTK.Name = "btn_TaoTK";
+            this.btn_TaoTK.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_TaoTK_ItemClick);
             // 
             // btn_Thoat
             // 
@@ -170,7 +180,7 @@
             // 
             this.btnTaoTKKH.Caption = "Tạo tài khoản cho khách hàng";
             this.btnTaoTKKH.Id = 13;
-            this.btnTaoTKKH.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem4.ImageOptions.LargeImage")));
+            this.btnTaoTKKH.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnTaoTKKH.ImageOptions.LargeImage")));
             this.btnTaoTKKH.LargeWidth = 100;
             this.btnTaoTKKH.Name = "btnTaoTKKH";
             this.btnTaoTKKH.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnTaoTKKH_ItemClick);
@@ -179,7 +189,7 @@
             // 
             this.btnGoiRut.Caption = "Gởi/Rút tiền";
             this.btnGoiRut.Id = 14;
-            this.btnGoiRut.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem5.ImageOptions.LargeImage")));
+            this.btnGoiRut.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnGoiRut.ImageOptions.LargeImage")));
             this.btnGoiRut.LargeWidth = 100;
             this.btnGoiRut.Name = "btnGoiRut";
             this.btnGoiRut.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnGoiRut_ItemClick);
@@ -188,7 +198,7 @@
             // 
             this.btnChuyenTien.Caption = "Chuyển tiền";
             this.btnChuyenTien.Id = 15;
-            this.btnChuyenTien.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem6.ImageOptions.LargeImage")));
+            this.btnChuyenTien.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnChuyenTien.ImageOptions.LargeImage")));
             this.btnChuyenTien.LargeWidth = 100;
             this.btnChuyenTien.Name = "btnChuyenTien";
             this.btnChuyenTien.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnChuyenTien_ItemClick);
@@ -200,6 +210,7 @@
             this.btnSaoKeGD.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnSaoKeGD.ImageOptions.LargeImage")));
             this.btnSaoKeGD.LargeWidth = 100;
             this.btnSaoKeGD.Name = "btnSaoKeGD";
+            this.btnSaoKeGD.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSaoKeGD_ItemClick);
             // 
             // btnLietKeTK
             // 
@@ -208,6 +219,7 @@
             this.btnLietKeTK.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnLietKeTK.ImageOptions.LargeImage")));
             this.btnLietKeTK.LargeWidth = 100;
             this.btnLietKeTK.Name = "btnLietKeTK";
+            this.btnLietKeTK.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLietKeTK_ItemClick);
             // 
             // btnLietKeKH
             // 
@@ -216,6 +228,26 @@
             this.btnLietKeKH.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnLietKeKH.ImageOptions.LargeImage")));
             this.btnLietKeKH.LargeWidth = 100;
             this.btnLietKeKH.Name = "btnLietKeKH";
+            this.btnLietKeKH.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLietKeKH_ItemClick);
+            // 
+            // btnSaoKeGDUser
+            // 
+            this.btnSaoKeGDUser.Caption = "Sao kê giao dịch";
+            this.btnSaoKeGDUser.Id = 19;
+            this.btnSaoKeGDUser.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSaoKeGDUser.ImageOptions.Image")));
+            this.btnSaoKeGDUser.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnSaoKeGDUser.ImageOptions.LargeImage")));
+            this.btnSaoKeGDUser.LargeWidth = 100;
+            this.btnSaoKeGDUser.Name = "btnSaoKeGDUser";
+            // 
+            // btnSaoKe
+            // 
+            this.btnSaoKe.Caption = "Sao kê giao dịch";
+            this.btnSaoKe.Id = 21;
+            this.btnSaoKe.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSaoKe.ImageOptions.Image")));
+            this.btnSaoKe.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnSaoKe.ImageOptions.LargeImage")));
+            this.btnSaoKe.LargeWidth = 100;
+            this.btnSaoKe.Name = "btnSaoKe";
+            this.btnSaoKe.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSaoKe_ItemClick);
             // 
             // rib_HeThong
             // 
@@ -231,7 +263,6 @@
             this.ribbonPageGroup1.ItemLinks.Add(this.btn_TaoTK);
             this.ribbonPageGroup1.ItemLinks.Add(this.btn_Thoat);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-            this.ribbonPageGroup1.Text = "Quản lý tài khoản";
             // 
             // rib_QuanLy
             // 
@@ -276,6 +307,19 @@
             this.ribbonPageGroup4.ItemLinks.Add(this.btnLietKeTK);
             this.ribbonPageGroup4.ItemLinks.Add(this.btnLietKeKH);
             this.ribbonPageGroup4.Name = "ribbonPageGroup4";
+            // 
+            // ribSaoKe
+            // 
+            this.ribSaoKe.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup5});
+            this.ribSaoKe.Name = "ribSaoKe";
+            this.ribSaoKe.Text = "Sao kê giao dịch";
+            this.ribSaoKe.Visible = false;
+            // 
+            // ribbonPageGroup5
+            // 
+            this.ribbonPageGroup5.ItemLinks.Add(this.btnSaoKe);
+            this.ribbonPageGroup5.Name = "ribbonPageGroup5";
             // 
             // xtraTabbedMdiManager1
             // 
@@ -333,6 +377,10 @@
             this.btnTransactionReport.LargeWidth = 100;
             this.btnTransactionReport.Name = "btnTransactionReport";
             // 
+            // barButtonItem4
+            // 
+            this.barButtonItem4.Name = "barButtonItem4";
+            // 
             // frmMain
             // 
             this.Appearance.Options.UseFont = true;
@@ -346,7 +394,7 @@
             this.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.Name = "frmMain";
             this.Ribbon = this.ribbonControl1;
-            this.Text = "FormMain";
+            this.Text = "Trang Chủ";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).EndInit();
@@ -390,6 +438,11 @@
         private DevExpress.XtraBars.Ribbon.RibbonPage ribBaoCao;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
         private DevExpress.XtraBars.BarButtonItem btnTransactionReport;
+        private DevExpress.XtraBars.BarButtonItem btnSaoKeGDUser;
+        private DevExpress.XtraBars.BarButtonItem btnSaoKe;
+        private DevExpress.XtraBars.Ribbon.RibbonPage ribSaoKe;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem4;
     }
 }
 

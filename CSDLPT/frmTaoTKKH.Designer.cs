@@ -38,7 +38,6 @@
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.btn_Them = new DevExpress.XtraBars.BarButtonItem();
-            this.btn_Sua = new DevExpress.XtraBars.BarButtonItem();
             this.btn_Ghi = new DevExpress.XtraBars.BarButtonItem();
             this.btn_Xoa = new DevExpress.XtraBars.BarButtonItem();
             this.btn_PhucHoi = new DevExpress.XtraBars.BarButtonItem();
@@ -50,6 +49,7 @@
             this.barDockControl3 = new DevExpress.XtraBars.BarDockControl();
             this.barButtonItem22 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem23 = new DevExpress.XtraBars.BarButtonItem();
+            this.btn_Sua = new DevExpress.XtraBars.BarButtonItem();
             this.btn_ChuyenCN = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControl2 = new DevExpress.XtraBars.BarDockControl();
             this.panelControl = new DevExpress.XtraEditors.PanelControl();
@@ -93,12 +93,12 @@
             this.colNGAYMOTK = new DevExpress.XtraGrid.Columns.GridColumn();
             this.KHTableAdapter = new CSDLPT.DSTableAdapters.KhachHangTableAdapter();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.btnGhi = new DevExpress.XtraEditors.SimpleButton();
             this.textSoDu = new System.Windows.Forms.TextBox();
             this.textMaCN = new System.Windows.Forms.TextBox();
             this.textSoTK = new System.Windows.Forms.TextBox();
             this.textCMND = new System.Windows.Forms.TextBox();
-            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             cMNDLabel = new System.Windows.Forms.Label();
             mACNLabel = new System.Windows.Forms.Label();
             sODULabel = new System.Windows.Forms.Label();
@@ -213,13 +213,6 @@
             this.btn_Them.Name = "btn_Them";
             this.btn_Them.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_Them_ItemClick);
             // 
-            // btn_Sua
-            // 
-            this.btn_Sua.Caption = "Sửa";
-            this.btn_Sua.Id = 3;
-            this.btn_Sua.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_Sua.ImageOptions.SvgImage")));
-            this.btn_Sua.Name = "btn_Sua";
-            // 
             // btn_Ghi
             // 
             this.btn_Ghi.Caption = "Ghi";
@@ -310,6 +303,13 @@
             this.barButtonItem23.Id = 1;
             this.barButtonItem23.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem23.ImageOptions.LargeImage")));
             this.barButtonItem23.Name = "barButtonItem23";
+            // 
+            // btn_Sua
+            // 
+            this.btn_Sua.Caption = "Sửa";
+            this.btn_Sua.Id = 3;
+            this.btn_Sua.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_Sua.ImageOptions.SvgImage")));
+            this.btn_Sua.Name = "btn_Sua";
             // 
             // btn_ChuyenCN
             // 
@@ -467,7 +467,9 @@
             // 
             // btnChon
             // 
+            this.btnChon.Appearance.BackColor = System.Drawing.Color.SkyBlue;
             this.btnChon.Appearance.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChon.Appearance.Options.UseBackColor = true;
             this.btnChon.Appearance.Options.UseFont = true;
             this.btnChon.Location = new System.Drawing.Point(551, 22);
             this.btnChon.Name = "btnChon";
@@ -505,7 +507,7 @@
             // 
             this.btnLamMoi.Appearance.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLamMoi.Appearance.Options.UseFont = true;
-            this.btnLamMoi.Location = new System.Drawing.Point(622, 84);
+            this.btnLamMoi.Location = new System.Drawing.Point(817, 85);
             this.btnLamMoi.Name = "btnLamMoi";
             this.btnLamMoi.Size = new System.Drawing.Size(94, 29);
             this.btnLamMoi.TabIndex = 4;
@@ -525,9 +527,10 @@
             // 
             // textCMNDTim
             // 
-            this.textCMNDTim.Location = new System.Drawing.Point(323, 88);
+            this.textCMNDTim.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textCMNDTim.Location = new System.Drawing.Point(323, 85);
             this.textCMNDTim.Name = "textCMNDTim";
-            this.textCMNDTim.Size = new System.Drawing.Size(177, 23);
+            this.textCMNDTim.Size = new System.Drawing.Size(177, 28);
             this.textCMNDTim.TabIndex = 2;
             // 
             // cmbChiNhanh
@@ -744,13 +747,25 @@
             this.panelControl3.Size = new System.Drawing.Size(630, 481);
             this.panelControl3.TabIndex = 38;
             // 
+            // labelControl4
+            // 
+            this.labelControl4.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl4.Appearance.Options.UseFont = true;
+            this.labelControl4.Location = new System.Drawing.Point(378, 46);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(156, 25);
+            this.labelControl4.TabIndex = 19;
+            this.labelControl4.Text = "Thêm tài khoản";
+            // 
             // btnGhi
             // 
+            this.btnGhi.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Danger;
             this.btnGhi.Appearance.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGhi.Appearance.Options.UseBackColor = true;
             this.btnGhi.Appearance.Options.UseFont = true;
-            this.btnGhi.Location = new System.Drawing.Point(360, 234);
+            this.btnGhi.Location = new System.Drawing.Point(396, 235);
             this.btnGhi.Name = "btnGhi";
-            this.btnGhi.Size = new System.Drawing.Size(94, 29);
+            this.btnGhi.Size = new System.Drawing.Size(113, 38);
             this.btnGhi.TabIndex = 18;
             this.btnGhi.Text = "Xác nhận";
             this.btnGhi.Click += new System.EventHandler(this.btnGhi_Click);
@@ -793,16 +808,6 @@
             this.textCMND.Name = "textCMND";
             this.textCMND.Size = new System.Drawing.Size(121, 28);
             this.textCMND.TabIndex = 13;
-            // 
-            // labelControl4
-            // 
-            this.labelControl4.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl4.Appearance.Options.UseFont = true;
-            this.labelControl4.Location = new System.Drawing.Point(335, 45);
-            this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(156, 25);
-            this.labelControl4.TabIndex = 19;
-            this.labelControl4.Text = "Thêm tài khoản";
             // 
             // frmTaoTKKH
             // 

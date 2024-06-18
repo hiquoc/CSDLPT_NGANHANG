@@ -280,11 +280,13 @@
             // 
             // btnChon2
             // 
+            this.btnChon2.Appearance.BackColor = System.Drawing.Color.SkyBlue;
             this.btnChon2.Appearance.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChon2.Appearance.Options.UseBackColor = true;
             this.btnChon2.Appearance.Options.UseFont = true;
-            this.btnChon2.Location = new System.Drawing.Point(666, 28);
+            this.btnChon2.Location = new System.Drawing.Point(628, 17);
             this.btnChon2.Name = "btnChon2";
-            this.btnChon2.Size = new System.Drawing.Size(69, 29);
+            this.btnChon2.Size = new System.Drawing.Size(120, 39);
             this.btnChon2.TabIndex = 22;
             this.btnChon2.Text = "Chọn";
             this.btnChon2.Click += new System.EventHandler(this.btnChon2_Click);
@@ -293,7 +295,7 @@
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Location = new System.Drawing.Point(194, 29);
+            this.labelControl1.Location = new System.Drawing.Point(194, 23);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(370, 25);
             this.labelControl1.TabIndex = 21;
@@ -421,20 +423,22 @@
             // 
             this.btnLamMoi.Appearance.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLamMoi.Appearance.Options.UseFont = true;
-            this.btnLamMoi.Location = new System.Drawing.Point(741, 25);
+            this.btnLamMoi.Location = new System.Drawing.Point(797, 24);
             this.btnLamMoi.Name = "btnLamMoi";
-            this.btnLamMoi.Size = new System.Drawing.Size(94, 29);
+            this.btnLamMoi.Size = new System.Drawing.Size(109, 35);
             this.btnLamMoi.TabIndex = 4;
             this.btnLamMoi.Text = "Làm mới";
             this.btnLamMoi.Click += new System.EventHandler(this.btnLamMoi_Click);
             // 
             // btnChon
             // 
+            this.btnChon.Appearance.BackColor = System.Drawing.Color.SkyBlue;
             this.btnChon.Appearance.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChon.Appearance.Options.UseBackColor = true;
             this.btnChon.Appearance.Options.UseFont = true;
-            this.btnChon.Location = new System.Drawing.Point(418, 26);
+            this.btnChon.Location = new System.Drawing.Point(420, 22);
             this.btnChon.Name = "btnChon";
-            this.btnChon.Size = new System.Drawing.Size(69, 29);
+            this.btnChon.Size = new System.Drawing.Size(113, 35);
             this.btnChon.TabIndex = 3;
             this.btnChon.Text = "Chọn";
             this.btnChon.Click += new System.EventHandler(this.btnChon_Click);
@@ -443,9 +447,9 @@
             // 
             this.btnTim.Appearance.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTim.Appearance.Options.UseFont = true;
-            this.btnTim.Location = new System.Drawing.Point(255, 26);
+            this.btnTim.Location = new System.Drawing.Point(283, 24);
             this.btnTim.Name = "btnTim";
-            this.btnTim.Size = new System.Drawing.Size(67, 29);
+            this.btnTim.Size = new System.Drawing.Size(92, 33);
             this.btnTim.TabIndex = 2;
             this.btnTim.Text = "Tìm";
             this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
@@ -463,7 +467,7 @@
             // textCMNDTim
             // 
             this.textCMNDTim.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textCMNDTim.Location = new System.Drawing.Point(94, 27);
+            this.textCMNDTim.Location = new System.Drawing.Point(105, 26);
             this.textCMNDTim.Name = "textCMNDTim";
             this.textCMNDTim.Size = new System.Drawing.Size(155, 28);
             this.textCMNDTim.TabIndex = 0;
@@ -545,7 +549,9 @@
             // 
             // btnXacNhan
             // 
+            this.btnXacNhan.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Danger;
             this.btnXacNhan.Appearance.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXacNhan.Appearance.Options.UseBackColor = true;
             this.btnXacNhan.Appearance.Options.UseFont = true;
             this.btnXacNhan.Location = new System.Drawing.Point(363, 211);
             this.btnXacNhan.Name = "btnXacNhan";
@@ -605,7 +611,9 @@
             // 
             // btnTaoGD
             // 
+            this.btnTaoGD.Appearance.BackColor = System.Drawing.Color.SkyBlue;
             this.btnTaoGD.Appearance.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTaoGD.Appearance.Options.UseBackColor = true;
             this.btnTaoGD.Appearance.Options.UseFont = true;
             this.btnTaoGD.Location = new System.Drawing.Point(363, 15);
             this.btnTaoGD.Name = "btnTaoGD";

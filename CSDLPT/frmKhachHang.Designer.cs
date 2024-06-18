@@ -107,8 +107,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bdsKH)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateeditNgayCap.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateeditNgayCap.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateeditNgayCap.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcKH)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsGoiRut)).BeginInit();
@@ -118,63 +118,70 @@
             // hOLabel
             // 
             hOLabel.AutoSize = true;
-            hOLabel.Location = new System.Drawing.Point(365, 65);
+            hOLabel.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            hOLabel.Location = new System.Drawing.Point(550, 62);
             hOLabel.Name = "hOLabel";
-            hOLabel.Size = new System.Drawing.Size(66, 16);
+            hOLabel.Size = new System.Drawing.Size(84, 20);
             hOLabel.TabIndex = 2;
             hOLabel.Text = "Họ và tên:";
             // 
             // dIACHILabel
             // 
             dIACHILabel.AutoSize = true;
-            dIACHILabel.Location = new System.Drawing.Point(730, 65);
+            dIACHILabel.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dIACHILabel.Location = new System.Drawing.Point(1074, 65);
             dIACHILabel.Name = "dIACHILabel";
-            dIACHILabel.Size = new System.Drawing.Size(51, 16);
+            dIACHILabel.Size = new System.Drawing.Size(64, 20);
             dIACHILabel.TabIndex = 6;
             dIACHILabel.Text = "Địa chỉ:";
             // 
             // pHAILabel
             // 
             pHAILabel.AutoSize = true;
-            pHAILabel.Location = new System.Drawing.Point(1004, 65);
+            pHAILabel.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            pHAILabel.Location = new System.Drawing.Point(1512, 60);
             pHAILabel.Name = "pHAILabel";
-            pHAILabel.Size = new System.Drawing.Size(36, 16);
+            pHAILabel.Size = new System.Drawing.Size(45, 20);
             pHAILabel.TabIndex = 8;
             pHAILabel.Text = "Phái:";
             // 
             // nGAYCAPLabel
             // 
             nGAYCAPLabel.AutoSize = true;
-            nGAYCAPLabel.Location = new System.Drawing.Point(730, 117);
+            nGAYCAPLabel.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            nGAYCAPLabel.Location = new System.Drawing.Point(1074, 117);
             nGAYCAPLabel.Name = "nGAYCAPLabel";
-            nGAYCAPLabel.Size = new System.Drawing.Size(64, 16);
+            nGAYCAPLabel.Size = new System.Drawing.Size(81, 20);
             nGAYCAPLabel.TabIndex = 10;
             nGAYCAPLabel.Text = "Ngày cấp:";
             // 
             // sODTLabel
             // 
             sODTLabel.AutoSize = true;
-            sODTLabel.Location = new System.Drawing.Point(363, 114);
+            sODTLabel.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            sODTLabel.Location = new System.Drawing.Point(550, 114);
             sODTLabel.Name = "sODTLabel";
-            sODTLabel.Size = new System.Drawing.Size(48, 16);
+            sODTLabel.Size = new System.Drawing.Size(61, 20);
             sODTLabel.TabIndex = 12;
             sODTLabel.Text = "Số ĐT:";
             // 
             // mACNLabel
             // 
             mACNLabel.AutoSize = true;
+            mACNLabel.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             mACNLabel.Location = new System.Drawing.Point(85, 114);
             mACNLabel.Name = "mACNLabel";
-            mACNLabel.Size = new System.Drawing.Size(49, 16);
+            mACNLabel.Size = new System.Drawing.Size(67, 20);
             mACNLabel.TabIndex = 14;
             mACNLabel.Text = "Mã CN:";
             // 
             // cMNDLabel
             // 
             cMNDLabel.AutoSize = true;
+            cMNDLabel.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             cMNDLabel.Location = new System.Drawing.Point(85, 62);
             cMNDLabel.Name = "cMNDLabel";
-            cMNDLabel.Size = new System.Drawing.Size(46, 16);
+            cMNDLabel.Size = new System.Drawing.Size(67, 20);
             cMNDLabel.TabIndex = 15;
             cMNDLabel.Text = "CMND:";
             // 
@@ -196,7 +203,7 @@
             this.panelControl1.Location = new System.Drawing.Point(0, 30);
             this.panelControl1.Margin = new System.Windows.Forms.Padding(4);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1522, 69);
+            this.panelControl1.Size = new System.Drawing.Size(1924, 69);
             this.panelControl1.TabIndex = 48;
             // 
             // cmbChiNhanh
@@ -273,7 +280,7 @@
             // 
             this.barDockControl4.CausesValidation = false;
             this.barDockControl4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControl4.Location = new System.Drawing.Point(1522, 30);
+            this.barDockControl4.Location = new System.Drawing.Point(1924, 30);
             this.barDockControl4.Manager = null;
             this.barDockControl4.Margin = new System.Windows.Forms.Padding(5);
             this.barDockControl4.Size = new System.Drawing.Size(0, 1025);
@@ -380,7 +387,7 @@
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
             this.barDockControlTop.Margin = new System.Windows.Forms.Padding(5);
-            this.barDockControlTop.Size = new System.Drawing.Size(1522, 30);
+            this.barDockControlTop.Size = new System.Drawing.Size(1924, 30);
             // 
             // barDockControlBottom
             // 
@@ -389,7 +396,7 @@
             this.barDockControlBottom.Location = new System.Drawing.Point(0, 1055);
             this.barDockControlBottom.Manager = this.barManager1;
             this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(5);
-            this.barDockControlBottom.Size = new System.Drawing.Size(1522, 0);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1924, 0);
             // 
             // barDockControlLeft
             // 
@@ -404,7 +411,7 @@
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1522, 30);
+            this.barDockControlRight.Location = new System.Drawing.Point(1924, 30);
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Margin = new System.Windows.Forms.Padding(5);
             this.barDockControlRight.Size = new System.Drawing.Size(0, 1025);
@@ -455,21 +462,22 @@
             this.panelControl2.Enabled = false;
             this.panelControl2.Location = new System.Drawing.Point(0, 829);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(1522, 226);
+            this.panelControl2.Size = new System.Drawing.Size(1924, 226);
             this.panelControl2.TabIndex = 24;
             // 
             // cmbPhai
             // 
             this.cmbPhai.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsKH, "PHAI", true));
             this.cmbPhai.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPhai.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbPhai.FormattingEnabled = true;
             this.cmbPhai.Items.AddRange(new object[] {
             "",
             "Nữ",
             "Nam"});
-            this.cmbPhai.Location = new System.Drawing.Point(1055, 62);
+            this.cmbPhai.Location = new System.Drawing.Point(1577, 54);
             this.cmbPhai.Name = "cmbPhai";
-            this.cmbPhai.Size = new System.Drawing.Size(97, 24);
+            this.cmbPhai.Size = new System.Drawing.Size(97, 28);
             this.cmbPhai.TabIndex = 23;
             // 
             // bdsKH
@@ -481,63 +489,71 @@
             // 
             this.dateeditNgayCap.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsKH, "NGAYCAP", true));
             this.dateeditNgayCap.EditValue = null;
-            this.dateeditNgayCap.Location = new System.Drawing.Point(800, 114);
+            this.dateeditNgayCap.Location = new System.Drawing.Point(1164, 112);
             this.dateeditNgayCap.MenuManager = this.barManager1;
             this.dateeditNgayCap.Name = "dateeditNgayCap";
+            this.dateeditNgayCap.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateeditNgayCap.Properties.Appearance.Options.UseFont = true;
             this.dateeditNgayCap.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateeditNgayCap.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateeditNgayCap.Size = new System.Drawing.Size(125, 22);
+            this.dateeditNgayCap.Size = new System.Drawing.Size(178, 26);
             this.dateeditNgayCap.TabIndex = 22;
             // 
             // textSoDT
             // 
             this.textSoDT.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsKH, "SODT", true));
-            this.textSoDT.Location = new System.Drawing.Point(445, 110);
+            this.textSoDT.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textSoDT.Location = new System.Drawing.Point(651, 106);
             this.textSoDT.Name = "textSoDT";
-            this.textSoDT.Size = new System.Drawing.Size(100, 23);
+            this.textSoDT.Size = new System.Drawing.Size(141, 28);
             this.textSoDT.TabIndex = 21;
             // 
             // textMaCN
             // 
             this.textMaCN.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsKH, "MACN", true));
             this.textMaCN.Enabled = false;
-            this.textMaCN.Location = new System.Drawing.Point(162, 111);
+            this.textMaCN.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textMaCN.Location = new System.Drawing.Point(195, 109);
             this.textMaCN.Name = "textMaCN";
-            this.textMaCN.Size = new System.Drawing.Size(100, 23);
+            this.textMaCN.Size = new System.Drawing.Size(119, 28);
             this.textMaCN.TabIndex = 20;
             // 
             // textDiaChi
             // 
             this.textDiaChi.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsKH, "DIACHI", true));
-            this.textDiaChi.Location = new System.Drawing.Point(787, 59);
+            this.textDiaChi.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textDiaChi.Location = new System.Drawing.Point(1164, 57);
             this.textDiaChi.Name = "textDiaChi";
-            this.textDiaChi.Size = new System.Drawing.Size(138, 23);
+            this.textDiaChi.Size = new System.Drawing.Size(178, 28);
             this.textDiaChi.TabIndex = 19;
             // 
             // textTen
             // 
             this.textTen.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsKH, "TEN", true));
-            this.textTen.Location = new System.Drawing.Point(551, 59);
+            this.textTen.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textTen.Location = new System.Drawing.Point(798, 54);
             this.textTen.Name = "textTen";
-            this.textTen.Size = new System.Drawing.Size(71, 23);
+            this.textTen.Size = new System.Drawing.Size(83, 28);
             this.textTen.TabIndex = 18;
             // 
             // textHo
             // 
             this.textHo.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsKH, "HO", true));
-            this.textHo.Location = new System.Drawing.Point(445, 59);
+            this.textHo.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textHo.Location = new System.Drawing.Point(651, 54);
             this.textHo.Name = "textHo";
-            this.textHo.Size = new System.Drawing.Size(100, 23);
+            this.textHo.Size = new System.Drawing.Size(141, 28);
             this.textHo.TabIndex = 17;
             // 
             // textCMND
             // 
             this.textCMND.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsKH, "CMND", true));
-            this.textCMND.Location = new System.Drawing.Point(137, 59);
+            this.textCMND.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textCMND.Location = new System.Drawing.Point(170, 57);
             this.textCMND.Name = "textCMND";
-            this.textCMND.Size = new System.Drawing.Size(125, 23);
+            this.textCMND.Size = new System.Drawing.Size(144, 28);
             this.textCMND.TabIndex = 16;
             // 
             // label2
@@ -574,7 +590,7 @@
             this.gcKH.MainView = this.gridView1;
             this.gcKH.MenuManager = this.barManager1;
             this.gcKH.Name = "gcKH";
-            this.gcKH.Size = new System.Drawing.Size(1522, 730);
+            this.gcKH.Size = new System.Drawing.Size(1924, 730);
             this.gcKH.TabIndex = 54;
             this.gcKH.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -695,7 +711,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1522, 1055);
+            this.ClientSize = new System.Drawing.Size(1924, 1055);
             this.Controls.Add(this.gcKH);
             this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.panelControl2);

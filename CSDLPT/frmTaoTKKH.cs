@@ -80,7 +80,7 @@ namespace CSDLPT
             int ma = 0;
             try
             {
-                string strlenh1 = "SELECT Maxx = ISNULL(CAST(MAX(sotk) AS INT), 0) FROM TAIKHOAN";
+                string strlenh1 = "SELECT Maxx = ISNULL(MAX(CAST(sotk AS INT)), 0) FROM TAIKHOAN";
 
                 Program.myReader = Program.ExecSqlDataReader(strlenh1);
                 if (Program.myReader != null && Program.myReader.HasRows)
@@ -255,6 +255,14 @@ namespace CSDLPT
 
         private void btn_Refresh_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            bdsTK.CancelEdit();
+            if (btn_Them.Enabled == false) { bdsTK.Position = vitri; }
+            gcTK.Enabled = true;
+            panelControl3.Enabled = false;
+
+            btn_Them.Enabled = btn_Sua.Enabled = btn_Xoa.Enabled = btn_Refresh.Enabled = btn_ChuyenCN.Enabled = btn_Thoat.Enabled = true;
+            btn_Ghi.Enabled = btn_PhucHoi.Enabled = false;
+            btn_Them_clicked = false;
             try
             {
                 this.TKTableAdapter.Fill(this.DS.TaiKhoan);

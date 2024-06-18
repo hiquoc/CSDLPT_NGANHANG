@@ -27,16 +27,12 @@ namespace CSDLPT
         private void frmKhachHang_Load(object sender, EventArgs e)
         {
             DS.EnforceConstraints = false;
-            // TODO: This line of code loads data into the 'DS.GD_CHUYENTIEN' table. You can move, or remove it, as needed.
             this.ChuyenTienTableAdapter.Connection.ConnectionString = Program.connstr;
             this.ChuyenTienTableAdapter.Fill(this.DS.GD_CHUYENTIEN);
-            // TODO: This line of code loads data into the 'DS.GD_GOIRUT' table. You can move, or remove it, as needed.
             this.GoiRutTableAdapter.Connection.ConnectionString = Program.connstr;
             this.GoiRutTableAdapter.Fill(this.DS.GD_GOIRUT);
 
             this.KhachHangTableAdapter.Connection.ConnectionString = Program.connstr;
-            // TODO: This line of code loads data into the 'dS.KhachHang' table. You can move, or remove it, as needed.
-
             this.KhachHangTableAdapter.Fill(this.DS.KhachHang);
 
             //loi khi khong co nhan vien hoac khach hang
@@ -81,7 +77,6 @@ namespace CSDLPT
             else
             {
                 this.KhachHangTableAdapter.Connection.ConnectionString = Program.connstr;
-                // TODO: This line of code loads data into the 'dS.KhachHang' table. You can move, or remove it, as needed.
                 this.KhachHangTableAdapter.Fill(this.DS.KhachHang);
             }
         }
@@ -132,7 +127,7 @@ namespace CSDLPT
                 textHo.Focus();
                 return false;
             }
-            if (!textHo.Text.All(Char.IsLetter))
+            if (!textHo.Text.Split(' ').All(word => word.All(Char.IsLetter)))
             {
                 MessageBox.Show("Họ khách hàng không hợp lệ!", "", MessageBoxButtons.OK);
                 textHo.Focus();
@@ -194,6 +189,10 @@ namespace CSDLPT
                 return false;
             }
             DateTime today = DateTime.Today;
+            if (dateeditNgayCap.EditValue == null || dateeditNgayCap.EditValue.ToString() == string.Empty)
+            {
+                dateeditNgayCap.EditValue = today;
+            }
             if (dateeditNgayCap.DateTime.Date > today)
             {
                 MessageBox.Show("Ngày cấp không hợp lệ!", "", MessageBoxButtons.OK);

@@ -102,29 +102,34 @@ namespace CSDLPT
             this.LayTTTKCTableAdapter.Fill(this.DS.frmChuyenTien_LayTTTKC, sotkc);
 
             textGD_TKC.Text = sotkc;
+            btnChon3.Enabled = true;
         }
 
 
-        private void btnTim2_Click(object sender, EventArgs e)
+
+
+        private void btnChon3_Click(object sender, EventArgs e)
         {
-            if (textSoTKTim.Text.Trim() == "")
+            sotkn = ((DataRowView)bdsTK[bdsTK.Position])["SOTK"].ToString();
+            if (sotkn == "")
             {
-                MessageBox.Show("Số tài khoản không được trống!", "", MessageBoxButtons.OK);
-                textSoTKTim.Focus();
+                MessageBox.Show("Vui lòng chọn tài khoản!", "", MessageBoxButtons.OK);
+            }
+            if (sotkn == sotkc)
+            {
+                MessageBox.Show("Không thể chuyển cho bản thân!", "", MessageBoxButtons.OK);
                 return;
             }
-            sotkn = (textSoTKTim.Text.Trim());
-            try
-            {
-                this.LayTTTKNTableAdapter.Connection.ConnectionString = Program.connstr;
-                this.LayTTTKNTableAdapter.Fill(this.DS.frmChuyenTien_LayTTTKN, sotkn);
-            }
-            catch
-            {
-                MessageBox.Show("Không tìm thấy!", "", MessageBoxButtons.OK);
-            }
+            DataRowView rowView = (DataRowView)bdsTK[bdsTK.Position];
+            decimal soduMoney = (decimal)rowView["SODU"];
+            sodu = (int)soduMoney;
+            this.LayTTTKNTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.LayTTTKNTableAdapter.Fill(this.DS.frmChuyenTien_LayTTTKN, sotkn);
+
             textGD_TKN.Text = sotkn;
+
         }
+
         private void btnGD_XacNhan_Click(object sender, EventArgs e)
         {
             if (textGD_SoTien.Text == "")
