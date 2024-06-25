@@ -8,11 +8,12 @@ namespace CSDLPT
     public partial class frmTaoTKKH : Form
     {
         int vitri = 0;
-        String macn = Program.tenChiNhanh;
+        String macn = Program.tenChiNhanh.Trim();
         bool btn_Them_clicked = false;
         public frmTaoTKKH()
         {
             InitializeComponent();
+            textST.EditValueChanged += textST_EditValueChanged;
         }
 
 
@@ -32,9 +33,9 @@ namespace CSDLPT
             this.TKTableAdapter.Connection.ConnectionString = Program.connstr;
             this.TKTableAdapter.Fill(this.DS.TaiKhoan);
             this.KHTableAdapter.Connection.ConnectionString = Program.connstr;
-            this.KHTableAdapter.Fill(this.DS.KhachHang);
+            this.KHTableAdapter.FillAll(this.DS.KhachHang);
             textMaCN.Text = Program.tenChiNhanh;
-
+            textST.Text = "100000";
         }
 
         private void btnTim_Click(object sender, EventArgs e)
@@ -63,6 +64,7 @@ namespace CSDLPT
 
         private void btn_Them_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+
             panelControl3.Enabled = true;
             vitri = bdsTK.Position;
             bdsTK.AddNew();
@@ -73,8 +75,8 @@ namespace CSDLPT
             btn_Them_clicked = true;
 
             textCMND.Text = ((DataRowView)bdsKH[bdsKH.Position])["CMND"].ToString();
-            textMaCN.Text = ((DataRowView)bdsKH[bdsKH.Position])["MACN"].ToString();
-            textSoDu.Text = "100000";
+            textMaCN.Text = macn;
+            textST.Text = "100000";
 
 
             int ma = 0;
@@ -126,7 +128,7 @@ namespace CSDLPT
         }
         private void btn_Ghi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            bool ketQua = kiemtra();
+            /*bool ketQua = kiemtra();
             if (ketQua == false)
             {
                 btn_Them.Enabled = btn_Sua.Enabled = btn_Xoa.Enabled = btn_Refresh.Enabled = btn_Thoat.Enabled = true;
@@ -135,12 +137,18 @@ namespace CSDLPT
                 btn_Them_clicked = false;
                 this.TKTableAdapter.Fill(this.DS.TaiKhoan);
                 return;
+            }*/
+            string sotien = "";
+            string formattedText = textST.Text;
+            formattedText = formattedText.Replace(",", "").Replace(".", "").Replace(" ", "").Replace("đ", "");
+            if (int.TryParse(formattedText, out int number))
+            {
+                sotien = number.ToString();
             }
-
             try
             {
                 string dt = String.Format("{0:yyyy-MM-dd HH:mm:ss.fff}", DateTime.Now);
-                string cml = "EXEC frmTaoTKKH_TaoTK'" + textSoTK.Text.TrimEnd() + "','" + textCMND.Text.TrimEnd() + "','" + int.Parse(textSoDu.Text) + "','" + textMaCN.Text.TrimEnd() + "','" + dt + "'";
+                string cml = "EXEC frmTaoTKKH_TaoTK'" + textSoTK.Text.TrimEnd() + "','" + textCMND.Text.TrimEnd() + "','" + int.Parse(sotien) + "','" + textMaCN.Text.Trim() + "','" + dt + "'";
                 Program.ExecSqlNonQuery(cml);
                 this.TKTableAdapter.Fill(this.DS.TaiKhoan);
             }
@@ -158,7 +166,7 @@ namespace CSDLPT
         }
         private void btnGhi_Click(object sender, EventArgs e)
         {
-            bool ketQua = kiemtra();
+            /*bool ketQua = kiemtra();
             if (ketQua == false)
             {
                 btn_Them.Enabled = btn_Sua.Enabled = btn_Xoa.Enabled = btn_Refresh.Enabled = btn_Thoat.Enabled = true;
@@ -167,13 +175,19 @@ namespace CSDLPT
                 btn_Them_clicked = false;
                 this.TKTableAdapter.Fill(this.DS.TaiKhoan);
                 return;
+            }*/
+            string sotien = "";
+            string formattedText = textST.Text;
+            formattedText = formattedText.Replace(",", "").Replace(".", "").Replace(" ", "").Replace("đ", "");
+            if (int.TryParse(formattedText, out int number))
+            {
+                sotien = number.ToString();
             }
-
             try
             {
 
                 string dt = String.Format("{0:yyyy-MM-dd HH:mm:ss.fff}", DateTime.Now);
-                string cml = "EXEC frmTaoTKKH_TaoTK'" + textSoTK.Text.TrimEnd() + "','" + textCMND.Text.TrimEnd() + "','" + int.Parse(textSoDu.Text) + "','" + textMaCN.Text.TrimEnd() + "','" + dt + "'";
+                string cml = "EXEC frmTaoTKKH_TaoTK'" + textSoTK.Text.TrimEnd() + "','" + textCMND.Text.TrimEnd() + "','" + int.Parse(sotien) + "','" + textMaCN.Text.TrimEnd() + "','" + dt + "'";
                 Program.ExecSqlNonQuery(cml);
                 this.TKTableAdapter.Fill(this.DS.TaiKhoan);
             }
@@ -188,10 +202,16 @@ namespace CSDLPT
         }
         private void btn_Xoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+
+            if (((DataRowView)bdsTK[bdsTK.Position])["MACN"].ToString().Trim() != Program.tenChiNhanh)
+            {
+                MessageBox.Show("Bạn không có quyền xóa tài khoản này!");
+                return;
+            }
             String sotk = ((DataRowView)bdsTK[bdsTK.Position])["SoTK"].ToString().TrimEnd();
             string strlenh1 = "SELECT * FROM DBO.GD_GOIRUT WHERE SOTK= '" + sotk + "'";
             Program.myReader = Program.ExecSqlDataReader(strlenh1);
-            if (Program.myReader == null) return;
+
             Program.myReader.Read();
             if (Program.myReader.HasRows)
             {
@@ -202,7 +222,7 @@ namespace CSDLPT
             Program.myReader.Close();
             string strlenh2 = "SELECT * FROM DBO.GD_CHUYENTIEN WHERE SOTK_CHUYEN= '" + sotk + "' OR SOTK_NHAN= '" + sotk + "'";
             Program.myReader = Program.ExecSqlDataReader(strlenh2);
-            if (Program.myReader == null) return;
+
             Program.myReader.Read();
             if (Program.myReader.HasRows)
             {
@@ -292,10 +312,23 @@ namespace CSDLPT
         private void btnLamMoi_Click(object sender, EventArgs e)
         {
             textCMNDTim.Text = "";
-            this.KHTableAdapter.Fill(this.DS.KhachHang);
+            this.KHTableAdapter.FillAll(this.DS.KhachHang);
             this.TKTableAdapter.Fill(this.DS.TaiKhoan);
         }
 
+        private void textST_EditValueChanged(object sender, EventArgs e)
+        {
+            if (int.TryParse(textST.Text, out int number))
+            {
+                string formattedNumber = number.ToString("#,##0");
 
+                formattedNumber += " đ";
+                textST.Text = formattedNumber;
+            }
+            else
+            {
+                /*textST.Text = "";*/
+            }
+        }
     }
 }

@@ -67,6 +67,7 @@
             this.GR_TKTableAdapter = new CSDLPT.DSTableAdapters.TaiKhoanTableAdapter();
             this.panelControl5 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl8 = new DevExpress.XtraEditors.PanelControl();
+            this.textST = new DevExpress.XtraEditors.TextEdit();
             this.textMaNV = new System.Windows.Forms.TextBox();
             this.cmbGD = new System.Windows.Forms.ComboBox();
             this.textSoTien = new DevExpress.XtraEditors.TextEdit();
@@ -109,6 +110,7 @@
             this.panelControl5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl8)).BeginInit();
             this.panelControl8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textST.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textSoTien.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl7)).BeginInit();
             this.panelControl7.SuspendLayout();
@@ -187,7 +189,7 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelControl2.Location = new System.Drawing.Point(0, 69);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(963, 785);
+            this.panelControl2.Size = new System.Drawing.Size(1039, 785);
             this.panelControl2.TabIndex = 19;
             // 
             // gcGR_TK
@@ -197,7 +199,7 @@
             this.gcGR_TK.Location = new System.Drawing.Point(2, 417);
             this.gcGR_TK.MainView = this.gridView2;
             this.gcGR_TK.Name = "gcGR_TK";
-            this.gcGR_TK.Size = new System.Drawing.Size(959, 320);
+            this.gcGR_TK.Size = new System.Drawing.Size(1035, 320);
             this.gcGR_TK.TabIndex = 22;
             this.gcGR_TK.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -217,10 +219,12 @@
             this.colNGAYMOTK});
             this.gridView2.GridControl = this.gcGR_TK;
             this.gridView2.Name = "gridView2";
+            this.gridView2.OptionsBehavior.ReadOnly = true;
             // 
             // colSOTK
             // 
             this.colSOTK.Caption = "Số tài khoản";
+            this.colSOTK.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colSOTK.FieldName = "SOTK";
             this.colSOTK.MinWidth = 25;
             this.colSOTK.Name = "colSOTK";
@@ -241,6 +245,8 @@
             // colSODU
             // 
             this.colSODU.Caption = "Số dư";
+            this.colSODU.DisplayFormat.FormatString = "C2";
+            this.colSODU.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colSODU.FieldName = "SODU";
             this.colSODU.MinWidth = 25;
             this.colSODU.Name = "colSODU";
@@ -275,7 +281,7 @@
             this.panelControl4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl4.Location = new System.Drawing.Point(2, 346);
             this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(959, 71);
+            this.panelControl4.Size = new System.Drawing.Size(1035, 71);
             this.panelControl4.TabIndex = 22;
             // 
             // btnChon2
@@ -308,7 +314,7 @@
             this.gcGR_KH.Location = new System.Drawing.Point(2, 73);
             this.gcGR_KH.MainView = this.gridView1;
             this.gcGR_KH.Name = "gcGR_KH";
-            this.gcGR_KH.Size = new System.Drawing.Size(959, 273);
+            this.gcGR_KH.Size = new System.Drawing.Size(1035, 273);
             this.gcGR_KH.TabIndex = 20;
             this.gcGR_KH.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -326,6 +332,9 @@
             this.colMACN});
             this.gridView1.GridControl = this.gcGR_KH;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsBehavior.ReadOnly = true;
+            this.gridView1.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colMACN, DevExpress.Data.ColumnSortOrder.Ascending)});
             // 
             // colCMND
             // 
@@ -416,7 +425,7 @@
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl3.Location = new System.Drawing.Point(2, 2);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(959, 71);
+            this.panelControl3.Size = new System.Drawing.Size(1035, 71);
             this.panelControl3.TabIndex = 19;
             // 
             // btnLamMoi
@@ -483,13 +492,14 @@
             this.panelControl5.Controls.Add(this.gD_GOIRUTGridControl);
             this.panelControl5.Controls.Add(this.panelControl6);
             this.panelControl5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl5.Location = new System.Drawing.Point(963, 69);
+            this.panelControl5.Location = new System.Drawing.Point(1039, 69);
             this.panelControl5.Name = "panelControl5";
-            this.panelControl5.Size = new System.Drawing.Size(784, 785);
+            this.panelControl5.Size = new System.Drawing.Size(708, 785);
             this.panelControl5.TabIndex = 20;
             // 
             // panelControl8
             // 
+            this.panelControl8.Controls.Add(this.textST);
             this.panelControl8.Controls.Add(this.textMaNV);
             this.panelControl8.Controls.Add(this.cmbGD);
             this.panelControl8.Controls.Add(this.textSoTien);
@@ -503,8 +513,18 @@
             this.panelControl8.Enabled = false;
             this.panelControl8.Location = new System.Drawing.Point(2, 417);
             this.panelControl8.Name = "panelControl8";
-            this.panelControl8.Size = new System.Drawing.Size(780, 366);
+            this.panelControl8.Size = new System.Drawing.Size(704, 366);
             this.panelControl8.TabIndex = 25;
+            // 
+            // textST
+            // 
+            this.textST.Location = new System.Drawing.Point(251, 126);
+            this.textST.Name = "textST";
+            this.textST.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textST.Properties.Appearance.Options.UseFont = true;
+            this.textST.Size = new System.Drawing.Size(125, 26);
+            this.textST.TabIndex = 9;
+            this.textST.EditValueChanged += new System.EventHandler(this.textST_EditValueChanged);
             // 
             // textMaNV
             // 
@@ -531,12 +551,13 @@
             // textSoTien
             // 
             this.textSoTien.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.textSoTien.Location = new System.Drawing.Point(251, 126);
+            this.textSoTien.Location = new System.Drawing.Point(251, 170);
             this.textSoTien.Name = "textSoTien";
             this.textSoTien.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textSoTien.Properties.Appearance.Options.UseFont = true;
             this.textSoTien.Size = new System.Drawing.Size(125, 26);
             this.textSoTien.TabIndex = 6;
+            this.textSoTien.Visible = false;
             // 
             // textSoTK
             // 
@@ -606,7 +627,7 @@
             this.panelControl7.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl7.Location = new System.Drawing.Point(2, 346);
             this.panelControl7.Name = "panelControl7";
-            this.panelControl7.Size = new System.Drawing.Size(780, 71);
+            this.panelControl7.Size = new System.Drawing.Size(704, 71);
             this.panelControl7.TabIndex = 24;
             // 
             // btnTaoGD
@@ -629,7 +650,7 @@
             this.gD_GOIRUTGridControl.Location = new System.Drawing.Point(2, 73);
             this.gD_GOIRUTGridControl.MainView = this.gridView3;
             this.gD_GOIRUTGridControl.Name = "gD_GOIRUTGridControl";
-            this.gD_GOIRUTGridControl.Size = new System.Drawing.Size(780, 273);
+            this.gD_GOIRUTGridControl.Size = new System.Drawing.Size(704, 273);
             this.gD_GOIRUTGridControl.TabIndex = 23;
             this.gD_GOIRUTGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView3});
@@ -650,6 +671,7 @@
             this.colMANV});
             this.gridView3.GridControl = this.gD_GOIRUTGridControl;
             this.gridView3.Name = "gridView3";
+            this.gridView3.OptionsBehavior.ReadOnly = true;
             // 
             // colMAGD
             // 
@@ -694,6 +716,8 @@
             // colSOTIEN
             // 
             this.colSOTIEN.Caption = "Số tiền";
+            this.colSOTIEN.DisplayFormat.FormatString = "C2";
+            this.colSOTIEN.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colSOTIEN.FieldName = "SOTIEN";
             this.colSOTIEN.MinWidth = 25;
             this.colSOTIEN.Name = "colSOTIEN";
@@ -717,7 +741,7 @@
             this.panelControl6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl6.Location = new System.Drawing.Point(2, 2);
             this.panelControl6.Name = "panelControl6";
-            this.panelControl6.Size = new System.Drawing.Size(780, 71);
+            this.panelControl6.Size = new System.Drawing.Size(704, 71);
             this.panelControl6.TabIndex = 23;
             // 
             // labelControl2
@@ -770,6 +794,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl8)).EndInit();
             this.panelControl8.ResumeLayout(false);
             this.panelControl8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textST.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textSoTien.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl7)).EndInit();
             this.panelControl7.ResumeLayout(false);
@@ -847,5 +872,6 @@
         private DevExpress.XtraEditors.TextEdit textSoTien;
         private System.Windows.Forms.TextBox textSoTK;
         private DevExpress.XtraEditors.SimpleButton btnTaoGD;
+        private DevExpress.XtraEditors.TextEdit textST;
     }
 }

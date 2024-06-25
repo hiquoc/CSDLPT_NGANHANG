@@ -99,6 +99,7 @@
             this.textMaCN = new System.Windows.Forms.TextBox();
             this.textSoTK = new System.Windows.Forms.TextBox();
             this.textCMND = new System.Windows.Forms.TextBox();
+            this.textST = new DevExpress.XtraEditors.TextEdit();
             cMNDLabel = new System.Windows.Forms.Label();
             mACNLabel = new System.Windows.Forms.Label();
             sODULabel = new System.Windows.Forms.Label();
@@ -119,6 +120,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             this.panelControl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textST.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // cMNDLabel
@@ -207,7 +209,7 @@
             // 
             // btn_Them
             // 
-            this.btn_Them.Caption = "Thêm";
+            this.btn_Them.Caption = "Tạo tài khoản";
             this.btn_Them.Id = 2;
             this.btn_Them.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_Them.ImageOptions.SvgImage")));
             this.btn_Them.Name = "btn_Them";
@@ -261,7 +263,7 @@
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
             this.barDockControlTop.Margin = new System.Windows.Forms.Padding(4);
-            this.barDockControlTop.Size = new System.Drawing.Size(1585, 30);
+            this.barDockControlTop.Size = new System.Drawing.Size(1802, 30);
             // 
             // barDockControlBottom
             // 
@@ -270,7 +272,7 @@
             this.barDockControlBottom.Location = new System.Drawing.Point(0, 904);
             this.barDockControlBottom.Manager = this.barManager1;
             this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(4);
-            this.barDockControlBottom.Size = new System.Drawing.Size(1585, 0);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1802, 0);
             // 
             // barDockControlLeft
             // 
@@ -285,7 +287,7 @@
             // 
             this.barDockControl3.CausesValidation = false;
             this.barDockControl3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControl3.Location = new System.Drawing.Point(1585, 30);
+            this.barDockControl3.Location = new System.Drawing.Point(1802, 30);
             this.barDockControl3.Manager = this.barManager1;
             this.barDockControl3.Margin = new System.Windows.Forms.Padding(4);
             this.barDockControl3.Size = new System.Drawing.Size(0, 874);
@@ -321,7 +323,7 @@
             // 
             this.barDockControl2.CausesValidation = false;
             this.barDockControl2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControl2.Location = new System.Drawing.Point(1585, 30);
+            this.barDockControl2.Location = new System.Drawing.Point(1802, 30);
             this.barDockControl2.Manager = null;
             this.barDockControl2.Margin = new System.Windows.Forms.Padding(4);
             this.barDockControl2.Size = new System.Drawing.Size(0, 874);
@@ -375,6 +377,7 @@
             this.colMACN1});
             this.gridView2.GridControl = this.gcKH;
             this.gridView2.Name = "gridView2";
+            this.gridView2.OptionsBehavior.ReadOnly = true;
             // 
             // colCMND1
             // 
@@ -659,7 +662,7 @@
             this.gcTK.MainView = this.gridView1;
             this.gcTK.MenuManager = this.barManager1;
             this.gcTK.Name = "gcTK";
-            this.gcTK.Size = new System.Drawing.Size(630, 393);
+            this.gcTK.Size = new System.Drawing.Size(847, 393);
             this.gcTK.TabIndex = 12;
             this.gcTK.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -674,6 +677,9 @@
             this.colNGAYMOTK});
             this.gridView1.GridControl = this.gcTK;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsBehavior.ReadOnly = true;
+            this.gridView1.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colMACN, DevExpress.Data.ColumnSortOrder.Ascending)});
             // 
             // colSOTK
             // 
@@ -697,6 +703,8 @@
             // colSODU
             // 
             this.colSODU.Caption = "Số dư";
+            this.colSODU.DisplayFormat.FormatString = "C2";
+            this.colSODU.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colSODU.FieldName = "SODU";
             this.colSODU.MinWidth = 25;
             this.colSODU.Name = "colSODU";
@@ -730,6 +738,7 @@
             // 
             // panelControl3
             // 
+            this.panelControl3.Controls.Add(this.textST);
             this.panelControl3.Controls.Add(this.labelControl4);
             this.panelControl3.Controls.Add(this.btnGhi);
             this.panelControl3.Controls.Add(this.textSoDu);
@@ -744,7 +753,7 @@
             this.panelControl3.Enabled = false;
             this.panelControl3.Location = new System.Drawing.Point(955, 423);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(630, 481);
+            this.panelControl3.Size = new System.Drawing.Size(847, 481);
             this.panelControl3.TabIndex = 38;
             // 
             // labelControl4
@@ -774,11 +783,12 @@
             // 
             this.textSoDu.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsTK, "SODU", true));
             this.textSoDu.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textSoDu.Location = new System.Drawing.Point(613, 110);
+            this.textSoDu.Location = new System.Drawing.Point(613, 242);
             this.textSoDu.Name = "textSoDu";
             this.textSoDu.ReadOnly = true;
             this.textSoDu.Size = new System.Drawing.Size(125, 28);
             this.textSoDu.TabIndex = 17;
+            this.textSoDu.Visible = false;
             // 
             // textMaCN
             // 
@@ -804,16 +814,29 @@
             // 
             this.textCMND.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsTK, "CMND", true));
             this.textCMND.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textCMND.Location = new System.Drawing.Point(238, 113);
+            this.textCMND.Location = new System.Drawing.Point(238, 105);
             this.textCMND.Name = "textCMND";
+            this.textCMND.ReadOnly = true;
             this.textCMND.Size = new System.Drawing.Size(121, 28);
             this.textCMND.TabIndex = 13;
+            // 
+            // textST
+            // 
+            this.textST.Location = new System.Drawing.Point(613, 105);
+            this.textST.MenuManager = this.barManager1;
+            this.textST.Name = "textST";
+            this.textST.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textST.Properties.Appearance.Options.UseFont = true;
+            this.textST.Properties.ReadOnly = true;
+            this.textST.Size = new System.Drawing.Size(125, 26);
+            this.textST.TabIndex = 20;
+            this.textST.EditValueChanged += new System.EventHandler(this.textST_EditValueChanged);
             // 
             // frmTaoTKKH
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1585, 904);
+            this.ClientSize = new System.Drawing.Size(1802, 904);
             this.Controls.Add(this.panelControl3);
             this.Controls.Add(this.gcTK);
             this.Controls.Add(this.panelControl);
@@ -847,6 +870,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             this.panelControl3.ResumeLayout(false);
             this.panelControl3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textST.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -919,5 +943,6 @@
         private DevExpress.XtraEditors.SimpleButton btnLamMoi;
         private DevExpress.XtraEditors.SimpleButton btnGhi;
         private DevExpress.XtraEditors.LabelControl labelControl4;
+        private DevExpress.XtraEditors.TextEdit textST;
     }
 }

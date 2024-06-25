@@ -225,7 +225,7 @@ namespace CSDLPT
                 return;
             }
             SqlParameter myParm;
-            //         Program.conn = new SqlConnection(connectionstring);
+
             SqlCommand Sqlcmd = new SqlCommand("SP_TAOTAIKHOAN", Program.conn);
 
             Sqlcmd.CommandType = CommandType.StoredProcedure;

@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.btnIn = new DevExpress.XtraEditors.SimpleButton();
+            this.btnXT = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.textCN = new System.Windows.Forms.TextBox();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
@@ -68,6 +69,7 @@
             // panelControl3
             // 
             this.panelControl3.Controls.Add(this.btnIn);
+            this.panelControl3.Controls.Add(this.btnXT);
             this.panelControl3.Controls.Add(this.labelControl5);
             this.panelControl3.Controls.Add(this.textCN);
             this.panelControl3.Controls.Add(this.labelControl2);
@@ -84,13 +86,27 @@
             this.btnIn.Appearance.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIn.Appearance.Options.UseBackColor = true;
             this.btnIn.Appearance.Options.UseFont = true;
-            this.btnIn.Location = new System.Drawing.Point(1114, 167);
+            this.btnIn.Location = new System.Drawing.Point(1143, 167);
             this.btnIn.Margin = new System.Windows.Forms.Padding(15);
             this.btnIn.Name = "btnIn";
             this.btnIn.Size = new System.Drawing.Size(222, 49);
-            this.btnIn.TabIndex = 8;
+            this.btnIn.TabIndex = 9;
             this.btnIn.Text = "In sao kê";
             this.btnIn.Click += new System.EventHandler(this.btnIn_Click);
+            // 
+            // btnXT
+            // 
+            this.btnXT.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Question;
+            this.btnXT.Appearance.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXT.Appearance.Options.UseBackColor = true;
+            this.btnXT.Appearance.Options.UseFont = true;
+            this.btnXT.Location = new System.Drawing.Point(835, 167);
+            this.btnXT.Margin = new System.Windows.Forms.Padding(15);
+            this.btnXT.Name = "btnXT";
+            this.btnXT.Size = new System.Drawing.Size(222, 49);
+            this.btnXT.TabIndex = 8;
+            this.btnXT.Text = "Xem trước";
+            this.btnXT.Click += new System.EventHandler(this.btnXT_Click);
             // 
             // labelControl5
             // 
@@ -106,7 +122,7 @@
             // textCN
             // 
             this.textCN.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textCN.Location = new System.Drawing.Point(698, 179);
+            this.textCN.Location = new System.Drawing.Point(591, 179);
             this.textCN.Margin = new System.Windows.Forms.Padding(12);
             this.textCN.Name = "textCN";
             this.textCN.ReadOnly = true;
@@ -117,7 +133,7 @@
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl2.Appearance.Options.UseFont = true;
-            this.labelControl2.Location = new System.Drawing.Point(511, 187);
+            this.labelControl2.Location = new System.Drawing.Point(404, 187);
             this.labelControl2.Margin = new System.Windows.Forms.Padding(15);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(160, 20);
@@ -233,6 +249,9 @@
             this.gridView1.DetailHeight = 682;
             this.gridView1.GridControl = this.gcKH;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsBehavior.ReadOnly = true;
+            this.gridView1.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colMACN, DevExpress.Data.ColumnSortOrder.Ascending)});
             // 
             // colCMND
             // 
@@ -362,7 +381,7 @@
         private DSTableAdapters.TableAdapterManager tableAdapterManager;
         private DevExpress.XtraGrid.GridControl gcKH;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraEditors.SimpleButton btnIn;
+        private DevExpress.XtraEditors.SimpleButton btnXT;
         private DevExpress.XtraGrid.Columns.GridColumn colCMND;
         private DevExpress.XtraGrid.Columns.GridColumn colHO;
         private DevExpress.XtraGrid.Columns.GridColumn colTEN;
@@ -371,5 +390,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colNGAYCAP;
         private DevExpress.XtraGrid.Columns.GridColumn colSODT;
         private DevExpress.XtraGrid.Columns.GridColumn colMACN;
+        private DevExpress.XtraEditors.SimpleButton btnIn;
     }
 }

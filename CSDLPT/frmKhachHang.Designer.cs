@@ -608,6 +608,7 @@
             this.colMACN});
             this.gridView1.GridControl = this.gcKH;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsBehavior.ReadOnly = true;
             // 
             // colCMND
             // 

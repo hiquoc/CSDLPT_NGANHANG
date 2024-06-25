@@ -46,6 +46,8 @@ namespace CSDLPT {
         
         private frmTaoLogin_LayTKLGDataTable tablefrmTaoLogin_LayTKLG;
         
+        private frmTaoLogin_LayTKLGKHDataTable tablefrmTaoLogin_LayTKLGKH;
+        
         private global::System.Data.DataRelation relationFK_GD_CHUYENTIEN_TaiKhoan1;
         
         private global::System.Data.DataRelation relationFK_GD_CHUYENTIEN_TaiKhoan;
@@ -130,6 +132,9 @@ namespace CSDLPT {
                 }
                 if ((ds.Tables["frmTaoLogin_LayTKLG"] != null)) {
                     base.Tables.Add(new frmTaoLogin_LayTKLGDataTable(ds.Tables["frmTaoLogin_LayTKLG"]));
+                }
+                if ((ds.Tables["frmTaoLogin_LayTKLGKH"] != null)) {
+                    base.Tables.Add(new frmTaoLogin_LayTKLGKHDataTable(ds.Tables["frmTaoLogin_LayTKLGKH"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -261,6 +266,16 @@ namespace CSDLPT {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public frmTaoLogin_LayTKLGKHDataTable frmTaoLogin_LayTKLGKH {
+            get {
+                return this.tablefrmTaoLogin_LayTKLGKH;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.BrowsableAttribute(true)]
         [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Visible)]
         public override global::System.Data.SchemaSerializationMode SchemaSerializationMode {
@@ -358,6 +373,9 @@ namespace CSDLPT {
                 }
                 if ((ds.Tables["frmTaoLogin_LayTKLG"] != null)) {
                     base.Tables.Add(new frmTaoLogin_LayTKLGDataTable(ds.Tables["frmTaoLogin_LayTKLG"]));
+                }
+                if ((ds.Tables["frmTaoLogin_LayTKLGKH"] != null)) {
+                    base.Tables.Add(new frmTaoLogin_LayTKLGKHDataTable(ds.Tables["frmTaoLogin_LayTKLGKH"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -458,6 +476,12 @@ namespace CSDLPT {
                     this.tablefrmTaoLogin_LayTKLG.InitVars();
                 }
             }
+            this.tablefrmTaoLogin_LayTKLGKH = ((frmTaoLogin_LayTKLGKHDataTable)(base.Tables["frmTaoLogin_LayTKLGKH"]));
+            if ((initTable == true)) {
+                if ((this.tablefrmTaoLogin_LayTKLGKH != null)) {
+                    this.tablefrmTaoLogin_LayTKLGKH.InitVars();
+                }
+            }
             this.relationFK_GD_CHUYENTIEN_TaiKhoan1 = this.Relations["FK_GD_CHUYENTIEN_TaiKhoan1"];
             this.relationFK_GD_CHUYENTIEN_TaiKhoan = this.Relations["FK_GD_CHUYENTIEN_TaiKhoan"];
             this.relationFK_GD_CHUYENTIEN_NhanVien = this.Relations["FK_GD_CHUYENTIEN_NhanVien"];
@@ -502,6 +526,8 @@ namespace CSDLPT {
             base.Tables.Add(this.tablefrmChuyenTien_LayTTTKN);
             this.tablefrmTaoLogin_LayTKLG = new frmTaoLogin_LayTKLGDataTable();
             base.Tables.Add(this.tablefrmTaoLogin_LayTKLG);
+            this.tablefrmTaoLogin_LayTKLGKH = new frmTaoLogin_LayTKLGKHDataTable();
+            base.Tables.Add(this.tablefrmTaoLogin_LayTKLGKH);
             global::System.Data.ForeignKeyConstraint fkc;
             fkc = new global::System.Data.ForeignKeyConstraint("FK_GD_CHUYENTIEN_TaiKhoan1", new global::System.Data.DataColumn[] {
                         this.tableTaiKhoan.SOTKColumn}, new global::System.Data.DataColumn[] {
@@ -691,6 +717,12 @@ namespace CSDLPT {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private bool ShouldSerializefrmTaoLogin_LayTKLGKH() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void SchemaChanged(object sender, global::System.ComponentModel.CollectionChangeEventArgs e) {
             if ((e.Action == global::System.ComponentModel.CollectionChangeAction.Remove)) {
                 this.InitVars();
@@ -776,6 +808,9 @@ namespace CSDLPT {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void frmTaoLogin_LayTKLGRowChangeEventHandler(object sender, frmTaoLogin_LayTKLGRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public delegate void frmTaoLogin_LayTKLGKHRowChangeEventHandler(object sender, frmTaoLogin_LayTKLGKHRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -4524,6 +4559,301 @@ namespace CSDLPT {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class frmTaoLogin_LayTKLGKHDataTable : global::System.Data.TypedTableBase<frmTaoLogin_LayTKLGKHRow> {
+            
+            private global::System.Data.DataColumn columnTai_khoan;
+            
+            private global::System.Data.DataColumn columnCMND;
+            
+            private global::System.Data.DataColumn columnHOTEN;
+            
+            private global::System.Data.DataColumn columnNhom;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public frmTaoLogin_LayTKLGKHDataTable() {
+                this.TableName = "frmTaoLogin_LayTKLGKH";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal frmTaoLogin_LayTKLGKHDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected frmTaoLogin_LayTKLGKHDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Tai_khoanColumn {
+                get {
+                    return this.columnTai_khoan;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn CMNDColumn {
+                get {
+                    return this.columnCMND;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn HOTENColumn {
+                get {
+                    return this.columnHOTEN;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn NhomColumn {
+                get {
+                    return this.columnNhom;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public frmTaoLogin_LayTKLGKHRow this[int index] {
+                get {
+                    return ((frmTaoLogin_LayTKLGKHRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event frmTaoLogin_LayTKLGKHRowChangeEventHandler frmTaoLogin_LayTKLGKHRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event frmTaoLogin_LayTKLGKHRowChangeEventHandler frmTaoLogin_LayTKLGKHRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event frmTaoLogin_LayTKLGKHRowChangeEventHandler frmTaoLogin_LayTKLGKHRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event frmTaoLogin_LayTKLGKHRowChangeEventHandler frmTaoLogin_LayTKLGKHRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void AddfrmTaoLogin_LayTKLGKHRow(frmTaoLogin_LayTKLGKHRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public frmTaoLogin_LayTKLGKHRow AddfrmTaoLogin_LayTKLGKHRow(string Tai_khoan, string CMND, string HOTEN, string Nhom) {
+                frmTaoLogin_LayTKLGKHRow rowfrmTaoLogin_LayTKLGKHRow = ((frmTaoLogin_LayTKLGKHRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        Tai_khoan,
+                        CMND,
+                        HOTEN,
+                        Nhom};
+                rowfrmTaoLogin_LayTKLGKHRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowfrmTaoLogin_LayTKLGKHRow);
+                return rowfrmTaoLogin_LayTKLGKHRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                frmTaoLogin_LayTKLGKHDataTable cln = ((frmTaoLogin_LayTKLGKHDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new frmTaoLogin_LayTKLGKHDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal void InitVars() {
+                this.columnTai_khoan = base.Columns["Tai khoan"];
+                this.columnCMND = base.Columns["CMND"];
+                this.columnHOTEN = base.Columns["HOTEN"];
+                this.columnNhom = base.Columns["Nhom"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            private void InitClass() {
+                this.columnTai_khoan = new global::System.Data.DataColumn("Tai khoan", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTai_khoan);
+                this.columnCMND = new global::System.Data.DataColumn("CMND", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCMND);
+                this.columnHOTEN = new global::System.Data.DataColumn("HOTEN", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHOTEN);
+                this.columnNhom = new global::System.Data.DataColumn("Nhom", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNhom);
+                this.columnTai_khoan.AllowDBNull = false;
+                this.columnTai_khoan.MaxLength = 128;
+                this.columnCMND.MaxLength = 128;
+                this.columnHOTEN.ReadOnly = true;
+                this.columnHOTEN.MaxLength = 61;
+                this.columnNhom.MaxLength = 128;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public frmTaoLogin_LayTKLGKHRow NewfrmTaoLogin_LayTKLGKHRow() {
+                return ((frmTaoLogin_LayTKLGKHRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new frmTaoLogin_LayTKLGKHRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(frmTaoLogin_LayTKLGKHRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.frmTaoLogin_LayTKLGKHRowChanged != null)) {
+                    this.frmTaoLogin_LayTKLGKHRowChanged(this, new frmTaoLogin_LayTKLGKHRowChangeEvent(((frmTaoLogin_LayTKLGKHRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.frmTaoLogin_LayTKLGKHRowChanging != null)) {
+                    this.frmTaoLogin_LayTKLGKHRowChanging(this, new frmTaoLogin_LayTKLGKHRowChangeEvent(((frmTaoLogin_LayTKLGKHRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.frmTaoLogin_LayTKLGKHRowDeleted != null)) {
+                    this.frmTaoLogin_LayTKLGKHRowDeleted(this, new frmTaoLogin_LayTKLGKHRowChangeEvent(((frmTaoLogin_LayTKLGKHRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.frmTaoLogin_LayTKLGKHRowDeleting != null)) {
+                    this.frmTaoLogin_LayTKLGKHRowDeleting(this, new frmTaoLogin_LayTKLGKHRowChangeEvent(((frmTaoLogin_LayTKLGKHRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void RemovefrmTaoLogin_LayTKLGKHRow(frmTaoLogin_LayTKLGKHRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                DS ds = new DS();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "frmTaoLogin_LayTKLGKHDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class GD_CHUYENTIENRow : global::System.Data.DataRow {
@@ -5979,6 +6309,116 @@ namespace CSDLPT {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class frmTaoLogin_LayTKLGKHRow : global::System.Data.DataRow {
+            
+            private frmTaoLogin_LayTKLGKHDataTable tablefrmTaoLogin_LayTKLGKH;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal frmTaoLogin_LayTKLGKHRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tablefrmTaoLogin_LayTKLGKH = ((frmTaoLogin_LayTKLGKHDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Tai_khoan {
+                get {
+                    return ((string)(this[this.tablefrmTaoLogin_LayTKLGKH.Tai_khoanColumn]));
+                }
+                set {
+                    this[this.tablefrmTaoLogin_LayTKLGKH.Tai_khoanColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string CMND {
+                get {
+                    try {
+                        return ((string)(this[this.tablefrmTaoLogin_LayTKLGKH.CMNDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CMND\' in table \'frmTaoLogin_LayTKLGKH\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablefrmTaoLogin_LayTKLGKH.CMNDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string HOTEN {
+                get {
+                    try {
+                        return ((string)(this[this.tablefrmTaoLogin_LayTKLGKH.HOTENColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'HOTEN\' in table \'frmTaoLogin_LayTKLGKH\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablefrmTaoLogin_LayTKLGKH.HOTENColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Nhom {
+                get {
+                    try {
+                        return ((string)(this[this.tablefrmTaoLogin_LayTKLGKH.NhomColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Nhom\' in table \'frmTaoLogin_LayTKLGKH\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablefrmTaoLogin_LayTKLGKH.NhomColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsCMNDNull() {
+                return this.IsNull(this.tablefrmTaoLogin_LayTKLGKH.CMNDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetCMNDNull() {
+                this[this.tablefrmTaoLogin_LayTKLGKH.CMNDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsHOTENNull() {
+                return this.IsNull(this.tablefrmTaoLogin_LayTKLGKH.HOTENColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetHOTENNull() {
+                this[this.tablefrmTaoLogin_LayTKLGKH.HOTENColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsNhomNull() {
+                return this.IsNull(this.tablefrmTaoLogin_LayTKLGKH.NhomColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetNhomNull() {
+                this[this.tablefrmTaoLogin_LayTKLGKH.NhomColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -6338,6 +6778,40 @@ namespace CSDLPT {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public frmTaoLogin_LayTKLGRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public class frmTaoLogin_LayTKLGKHRowChangeEvent : global::System.EventArgs {
+            
+            private frmTaoLogin_LayTKLGKHRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public frmTaoLogin_LayTKLGKHRowChangeEvent(frmTaoLogin_LayTKLGKHRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public frmTaoLogin_LayTKLGKHRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -8526,7 +9000,7 @@ SELECT MACN, TENCN, DIACHI, SoDT, rowguid FROM ChiNhanh WHERE (MACN = @MACN)";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT CMND, HO, TEN, DIACHI, PHAI, NGAYCAP, SODT, MACN, rowguid\r\nFROM     KhachH" +
@@ -8535,9 +9009,15 @@ SELECT MACN, TENCN, DIACHI, SoDT, rowguid FROM ChiNhanh WHERE (MACN = @MACN)";
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
             this._commandCollection[1].CommandText = "SELECT CMND, HO, TEN, DIACHI, PHAI, NGAYCAP, SODT, MACN, rowguid\r\nFROM     KhachH" +
-                "ang\r\nWHERE  (CMND = @CMND)";
+                "ang\r\nUNION ALL\r\nSELECT CMND, HO, TEN, DIACHI, PHAI, NGAYCAP, SODT, MACN, rowguid" +
+                "\r\nFROM     LINK1.NGANHANG.dbo.KhachHang AS KhachHang_1";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CMND", global::System.Data.SqlDbType.NChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "CMND", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT CMND, HO, TEN, DIACHI, PHAI, NGAYCAP, SODT, MACN, rowguid\r\nFROM     KhachH" +
+                "ang\r\nWHERE  (CMND = @CMND)";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CMND", global::System.Data.SqlDbType.NChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "CMND", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8568,8 +9048,32 @@ SELECT MACN, TENCN, DIACHI, SoDT, rowguid FROM ChiNhanh WHERE (MACN = @MACN)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillBy(DS.KhachHangDataTable dataTable, string CMND) {
+        public virtual int FillAll(DS.KhachHangDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual DS.KhachHangDataTable GetDataAll() {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            DS.KhachHangDataTable dataTable = new DS.KhachHangDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy(DS.KhachHangDataTable dataTable, string CMND) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             if ((CMND == null)) {
                 throw new global::System.ArgumentNullException("CMND");
             }
@@ -8588,7 +9092,7 @@ SELECT MACN, TENCN, DIACHI, SoDT, rowguid FROM ChiNhanh WHERE (MACN = @MACN)";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual DS.KhachHangDataTable GetDataBy(string CMND) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             if ((CMND == null)) {
                 throw new global::System.ArgumentNullException("CMND");
             }
@@ -9113,7 +9617,7 @@ SELECT SOTK, CMND, SODU, MACN, NGAYMOTK, rowguid FROM TaiKhoan WHERE (SOTK = @SO
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[4];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[5];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT SOTK, CMND, SODU, MACN, NGAYMOTK, rowguid FROM dbo.TaiKhoan";
@@ -9132,9 +9636,15 @@ SELECT SOTK, CMND, SODU, MACN, NGAYMOTK, rowguid FROM TaiKhoan WHERE (SOTK = @SO
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CMND", global::System.Data.SqlDbType.NChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "CMND", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "SELECT SODU\r\nFROM     TaiKhoan\r\nWHERE  (SOTK = @SOTK)";
+            this._commandCollection[3].CommandText = "SELECT SOTK, CMND, SODU, MACN, NGAYMOTK, rowguid\r\nFROM     TaiKhoan\r\nWHERE  (MACN" +
+                " = @MACN)";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SOTK", global::System.Data.SqlDbType.NChar, 9, global::System.Data.ParameterDirection.Input, 0, 0, "SOTK", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MACN", global::System.Data.SqlDbType.NChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "MACN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[4].Connection = this.Connection;
+            this._commandCollection[4].CommandText = "SELECT SODU\r\nFROM     TaiKhoan\r\nWHERE  (SOTK = @SOTK)";
+            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SOTK", global::System.Data.SqlDbType.NChar, 9, global::System.Data.ParameterDirection.Input, 0, 0, "SOTK", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9215,6 +9725,42 @@ SELECT SOTK, CMND, SODU, MACN, NGAYMOTK, rowguid FROM TaiKhoan WHERE (SOTK = @SO
             }
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((string)(CMND));
+            }
+            DS.TaiKhoanDataTable dataTable = new DS.TaiKhoanDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByOne(DS.TaiKhoanDataTable dataTable, string MACN) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((MACN == null)) {
+                throw new global::System.ArgumentNullException("MACN");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(MACN));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual DS.TaiKhoanDataTable GetDataByOne(string MACN) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((MACN == null)) {
+                throw new global::System.ArgumentNullException("MACN");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(MACN));
             }
             DS.TaiKhoanDataTable dataTable = new DS.TaiKhoanDataTable();
             this.Adapter.Fill(dataTable);
@@ -9429,7 +9975,7 @@ SELECT SOTK, CMND, SODU, MACN, NGAYMOTK, rowguid FROM TaiKhoan WHERE (SOTK = @SO
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual global::System.Nullable<decimal> GetSoDu(string SOTK) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[3];
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[4];
             if ((SOTK == null)) {
                 throw new global::System.ArgumentNullException("SOTK");
             }
@@ -9839,17 +10385,23 @@ SELECT CMND, HO, TEN, DIACHI, NGAYCAP, PHAI, SODT, MACN FROM KhachHang WHERE (CM
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT CMND, HO, TEN, DIACHI, NGAYCAP, PHAI, SODT, MACN\r\nFROM     KhachHang";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT CMND, HO, TEN, DIACHI, NGAYCAP, PHAI, SODT, MACN\r\nFROM     KhachHang\r\nWHER" +
-                "E  (CMND = @CMND)";
+            this._commandCollection[1].CommandText = "SELECT CMND, HO, TEN, DIACHI, PHAI, NGAYCAP, SODT, MACN, rowguid\r\nFROM     KhachH" +
+                "ang\r\nUNION ALL\r\nSELECT CMND, HO, TEN, DIACHI, PHAI, NGAYCAP, SODT, MACN, rowguid" +
+                "\r\nFROM     LINK1.NGANHANG.dbo.KhachHang AS KhachHang_1";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CMND", global::System.Data.SqlDbType.NChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "CMND", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT CMND, HO, TEN, DIACHI, NGAYCAP, PHAI, SODT, MACN\r\nFROM     KhachHang\r\nWHER" +
+                "E  (CMND = @CMND)";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CMND", global::System.Data.SqlDbType.NChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "CMND", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9880,8 +10432,32 @@ SELECT CMND, HO, TEN, DIACHI, NGAYCAP, PHAI, SODT, MACN FROM KhachHang WHERE (CM
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillBy(DS.frmGoiRut_KhachHangDataTable dataTable, string CMND) {
+        public virtual int FillAll(DS.frmGoiRut_KhachHangDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual DS.frmGoiRut_KhachHangDataTable GetDataAll() {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            DS.frmGoiRut_KhachHangDataTable dataTable = new DS.frmGoiRut_KhachHangDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy(DS.frmGoiRut_KhachHangDataTable dataTable, string CMND) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             if ((CMND == null)) {
                 throw new global::System.ArgumentNullException("CMND");
             }
@@ -9900,7 +10476,7 @@ SELECT CMND, HO, TEN, DIACHI, NGAYCAP, PHAI, SODT, MACN FROM KhachHang WHERE (CM
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual DS.frmGoiRut_KhachHangDataTable GetDataBy(string CMND) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             if ((CMND == null)) {
                 throw new global::System.ArgumentNullException("CMND");
             }
@@ -10747,6 +11323,177 @@ SELECT CMND, HO, TEN, DIACHI, NGAYCAP, PHAI, SODT, MACN FROM KhachHang WHERE (CM
         public virtual DS.frmTaoLogin_LayTKLGDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             DS.frmTaoLogin_LayTKLGDataTable dataTable = new DS.frmTaoLogin_LayTKLGDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class frmTaoLogin_LayTKLGKHTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public frmTaoLogin_LayTKLGKHTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "frmTaoLogin_LayTKLGKH";
+            tableMapping.ColumnMappings.Add("Tai khoan", "Tai khoan");
+            tableMapping.ColumnMappings.Add("CMND", "CMND");
+            tableMapping.ColumnMappings.Add("HOTEN", "HOTEN");
+            tableMapping.ColumnMappings.Add("Nhom", "Nhom");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::CSDLPT.Properties.Settings.Default.NGANHANGConnectionString1;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "dbo.frmTaoLogin_LayTKLGKH";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(DS.frmTaoLogin_LayTKLGKHDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual DS.frmTaoLogin_LayTKLGKHDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            DS.frmTaoLogin_LayTKLGKHDataTable dataTable = new DS.frmTaoLogin_LayTKLGKHDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }

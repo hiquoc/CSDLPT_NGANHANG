@@ -154,7 +154,7 @@
             // 
             sODTLabel.AutoSize = true;
             sODTLabel.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            sODTLabel.Location = new System.Drawing.Point(1433, 111);
+            sODTLabel.Location = new System.Drawing.Point(1428, 97);
             sODTLabel.Name = "sODTLabel";
             sODTLabel.Size = new System.Drawing.Size(107, 20);
             sODTLabel.TabIndex = 12;
@@ -164,7 +164,7 @@
             // 
             mACNLabel.AutoSize = true;
             mACNLabel.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            mACNLabel.Location = new System.Drawing.Point(1432, 49);
+            mACNLabel.Location = new System.Drawing.Point(1428, 39);
             mACNLabel.Name = "mACNLabel";
             mACNLabel.Size = new System.Drawing.Size(112, 20);
             mACNLabel.TabIndex = 14;
@@ -412,6 +412,7 @@
             this.textMaNVMoi.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textMaNVMoi.Location = new System.Drawing.Point(872, 153);
             this.textMaNVMoi.Name = "textMaNVMoi";
+            this.textMaNVMoi.ReadOnly = true;
             this.textMaNVMoi.Size = new System.Drawing.Size(100, 28);
             this.textMaNVMoi.TabIndex = 23;
             // 
@@ -455,7 +456,7 @@
             // 
             this.textMaCN.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsNV, "MACN", true));
             this.textMaCN.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textMaCN.Location = new System.Drawing.Point(1549, 46);
+            this.textMaCN.Location = new System.Drawing.Point(1551, 31);
             this.textMaCN.Name = "textMaCN";
             this.textMaCN.ReadOnly = true;
             this.textMaCN.Size = new System.Drawing.Size(143, 28);
@@ -465,7 +466,7 @@
             // 
             this.textSoDT.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsNV, "SODT", true));
             this.textSoDT.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textSoDT.Location = new System.Drawing.Point(1549, 108);
+            this.textSoDT.Location = new System.Drawing.Point(1551, 93);
             this.textSoDT.Name = "textSoDT";
             this.textSoDT.Size = new System.Drawing.Size(143, 28);
             this.textSoDT.TabIndex = 6;
@@ -584,6 +585,7 @@
             this.colTrangThaiXoa1});
             this.gridView2.GridControl = this.gcNV;
             this.gridView2.Name = "gridView2";
+            this.gridView2.OptionsBehavior.ReadOnly = true;
             // 
             // colMANV1
             // 

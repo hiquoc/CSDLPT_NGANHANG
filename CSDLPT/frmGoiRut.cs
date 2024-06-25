@@ -12,6 +12,7 @@ namespace CSDLPT
         public frmGoiRut()
         {
             InitializeComponent();
+            textST.EditValueChanged += textST_EditValueChanged;
         }
 
         private void frmGoiRut_KhachHangBindingNavigatorSaveItem_Click(object sender, EventArgs e)
@@ -30,7 +31,7 @@ namespace CSDLPT
             this.GR_GDTableAdapter.Connection.ConnectionString = Program.connstr;
 
             this.GR_KHTableAdapter.Connection.ConnectionString = Program.connstr;
-            this.GR_KHTableAdapter.Fill(this.DS.frmGoiRut_KhachHang);
+            this.GR_KHTableAdapter.FillAll(this.DS.frmGoiRut_KhachHang);
 
 
             cmbChiNhanh.DataSource = Program.bds_dspm;
@@ -86,10 +87,16 @@ namespace CSDLPT
 
         private void btnChon2_Click(object sender, EventArgs e)
         {
+            if (((DataRowView)bdsGR_TK[bdsGR_TK.Position])["MACN"].ToString().Trim() != Program.tenChiNhanh)
+            {
+                MessageBox.Show("Không thể tạo giao dịch gởi rút đối với tài khoản thuộc chi nhánh khác!", "", MessageBoxButtons.OK);
+                return;
+            }
             sotk = ((DataRowView)bdsGR_TK[bdsGR_TK.Position])["SOTK"].ToString();
             if (sotk == "")
             {
                 MessageBox.Show("Vui lòng chọn tài khoản!", "", MessageBoxButtons.OK);
+                return;
             }
             DataRowView rowView = (DataRowView)bdsGR_TK[bdsGR_TK.Position];
             decimal soduMoney = (decimal)rowView["SODU"];
@@ -100,10 +107,17 @@ namespace CSDLPT
 
         private bool check()
         {
-            if (int.Parse(textSoTien.Text) < 100000)
+            string sotien = "";
+            string formattedText = textST.Text;
+            formattedText = formattedText.Replace(",", "").Replace(".", "").Replace(" ", "").Replace("đ", "");
+            if (int.TryParse(formattedText, out int number))
+            {
+                sotien = number.ToString();
+            }
+            if (int.Parse(sotien) < 100000)
             {
                 MessageBox.Show("Số tiền thực hiện giao dịch tối thiểu là 100000!", "", MessageBoxButtons.OK);
-                textSoTien.Focus();
+                textST.Focus();
                 return false;
             }
             if (cmbGD.Text == "")
@@ -115,10 +129,10 @@ namespace CSDLPT
 
             if (cmbGD.Text == "Rút tiền")
             {
-                if (sodu < int.Parse(textSoTien.Text.Trim()))
+                if (sodu < int.Parse(sotien))
                 {
                     MessageBox.Show("Số dư tài khoản không đủ để thực hiện giao dịch này!", "", MessageBoxButtons.OK);
-                    textSoTien.Focus();
+                    textST.Focus();
                     return false;
                 }
             }
@@ -135,7 +149,7 @@ namespace CSDLPT
             btnTaoGD.Enabled = false;
             textSoTK.Text = sotk;
             textMaNV.Text = Program.username;
-            textSoTien.Text = "100000";
+            textST.Text = "100000";
 
         }
 
@@ -147,17 +161,24 @@ namespace CSDLPT
             }
             string ldg = "RT";
             if (cmbGD.Text == "Gởi tiền") { ldg = "GT"; }
+            string sotien = "";
+            string formattedText = textST.Text;
+            formattedText = formattedText.Replace(",", "").Replace(".", "").Replace(" ", "").Replace("đ", "");
+            if (int.TryParse(formattedText, out int number))
+            {
+                sotien = number.ToString();
+            }
             try
             {
                 string dt = String.Format("{0:yyyy-MM-dd HH:mm:ss.fff}", DateTime.Now);
-                string cml = "EXEC frmGoiRut_thuchienGD '" + textSoTK.Text.TrimEnd() + "', '" + ldg + "', '" + dt + "', " + int.Parse(textSoTien.Text.Trim()) + ", '" + textMaNV.Text.TrimEnd() + "'";
+                string cml = "EXEC frmGoiRut_thuchienGD '" + textSoTK.Text.TrimEnd() + "', '" + ldg + "', '" + dt + "', " + int.Parse(sotien) + ", '" + textMaNV.Text.TrimEnd() + "'";
                 Program.ExecSqlNonQuery(cml);
                 this.GR_GDTableAdapter.FillBy(this.DS.GD_GOIRUT, sotk);
                 panelControl8.Enabled = false;
                 btnTaoGD.Enabled = true;
                 textSoTK.Text = "";
                 textMaNV.Text = "";
-                textSoTien.Text = "100000";
+                textST.Text = "100000";
                 MessageBox.Show("Thực hiện giao dịch thành công! ", "", MessageBoxButtons.OK);
             }
             catch (Exception ex)
@@ -168,6 +189,21 @@ namespace CSDLPT
             this.GR_TKTableAdapter.FillBy(this.DS.TaiKhoan, cmnd);
             decimal soduMoney = (decimal)this.GR_TKTableAdapter.GetSoDu(sotk);
             sodu = (int)soduMoney;
+        }
+
+        private void textST_EditValueChanged(object sender, EventArgs e)
+        {
+            if (int.TryParse(textST.Text, out int number))
+            {
+                string formattedNumber = number.ToString("#,##0");
+
+                formattedNumber += " đ";
+                textST.Text = formattedNumber;
+            }
+            else
+            {
+                textST.Text = "";
+            }
         }
     }
 }

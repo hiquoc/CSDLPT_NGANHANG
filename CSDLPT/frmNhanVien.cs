@@ -162,7 +162,7 @@ namespace CSDLPT
         private void btn_Xoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             string manv = ((DataRowView)bdsNV[bdsNV.Position])["MANV"].ToString();
-            //string TTX = ((DataRowView)bdsNV[bdsNV.Position])["TrangThaiXoa"].ToString();
+            string TTX = ((DataRowView)bdsNV[bdsNV.Position])["TrangThaiXoa"].ToString();
             if (bdsChuyenTien.Count > 0)
             {
                 MessageBox.Show("Không thể xóa vì nhân viên này đã thực hiện giao dịch chuyển tiền!", "", MessageBoxButtons.OK);
@@ -178,11 +178,11 @@ namespace CSDLPT
                 MessageBox.Show("Không thể xóa vì nhân viên này đang đăng nhập!", "", MessageBoxButtons.OK);
                 return;
             }
-            //if (TTX == "1")
-            //{
-            //    MessageBox.Show("Không thể xóa vì nhân viên này không làm ở chi nhánh này!", "", MessageBoxButtons.OK);
-            //    return;
-            //}
+            if (TTX == "1")
+            {
+                MessageBox.Show("Không thể xóa vì nhân viên này không làm ở chi nhánh này!", "", MessageBoxButtons.OK);
+                return;
+            }
             if (MessageBox.Show("Bạn có chắc là muốn xóa nhân viên này không?", "", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
                 try
@@ -391,7 +391,25 @@ namespace CSDLPT
             label2.Enabled = textMaNVMoi.Enabled = btnXacNhan.Enabled = true;
             btnChuyenCN.Enabled = false;
             int ma = 0;
+            try
+            {
+                string strlenh = "select MaNV from LINK1.NGANHANG.dbo.NhanVien where CMND='" + textMaNV.Text + "'";
+                using (SqlDataReader myReader = Program.ExecSqlDataReader(strlenh))
+                {
+                    if (myReader != null && myReader.HasRows)
+                    {
+                        myReader.Read();
+                        string manv = (myReader.GetString(0));
+                        textMaNVMoi.Text = manv;
+                        return;
+                    }
 
+                }
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
             try
             {
                 string strlenh1 = "SELECT MaNV = ISNULL(MAX(CAST(SUBSTRING(MANV, 3, LEN(MANV) - 2) AS INT)), 0) FROM LINK1.NGANHANG.DBO.NhanVien";

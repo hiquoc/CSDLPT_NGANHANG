@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -259,48 +260,62 @@ namespace CSDLPT
         private void btn_Xoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             string CMND = ((DataRowView)bdsKH[bdsKH.Position])["CMND"].ToString();
-            string cml1 = "select SOTK FROM TaiKhoan where CMND='" + CMND + "' and (SOTK IN(select SOTK_CHUYEN FROM GD_CHUYENTIEN) or SOTK IN(select SOTK_NHAN FROM GD_CHUYENTIEN))";
-            Program.myReader = Program.ExecSqlDataReader(cml1);
-            if (Program.myReader == null) return;
-            Program.myReader.Read();
-            if (Program.myReader.HasRows)
+            if (CheckTransactionChuyenTien(CMND))
             {
                 MessageBox.Show("Không thể xóa vì khách hàng này đã thực hiện giao dịch chuyển tiền!", "", MessageBoxButtons.OK);
-                Program.myReader.Close();
                 return;
             }
-            Program.myReader.Close();
-
-            string cml2 = "select SOTK FROM TaiKhoan where CMND='" + CMND + "' and SOTK IN(select SOTK FROM GD_GOIRUT) ";
-            Program.myReader = Program.ExecSqlDataReader(cml2);
-            if (Program.myReader == null) return;
-            Program.myReader.Read();
-            if (Program.myReader.HasRows)
+            if (CheckTransactionGoiRut(CMND))
             {
                 MessageBox.Show("Không thể xóa vì khách hàng này đã thực hiện giao dịch gởi/rút!", "", MessageBoxButtons.OK);
-                Program.myReader.Close();
                 return;
             }
-            Program.myReader.Close();
-            //Program.myReader.Close();
-            //string strlenh1 = "EXEC frmKhachHang_ExistsGD '" + textCMND.Text + "'";
-            //Program.myReader = Program.ExecSqlDataReader(strlenh1);
-            //Program.myReader.Read();
-            //if (Program.myReader.HasRows)
-            //{
-            //    MessageBox.Show("Khách hàng đã thực hiện giao dịch \nKhông thể xoá", "", MessageBoxButtons.OK);
-            //    return;
-            //}
-            //Program.myReader.Close();
             if (MessageBox.Show("Bạn có thật sự muốn xoá khách hàng này không?", "", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
                 try
                 {
-                    bdsKH.RemoveCurrent();
-                    this.KhachHangTableAdapter.Connection.ConnectionString = Program.connstr;
-                    this.KhachHangTableAdapter.Update(this.DS.KhachHang);
-                    //Program.ExecSqlNonQuery("EXEC frmKhachHang_DeleteAccountNonGD '" + CMND + "'");
-                    MessageBox.Show("Xoá thành công !", "", MessageBoxButtons.OK);
+                    string sqlQuery = "DECLARE @table1 TABLE " +
+                                      "([Tai khoan] NVARCHAR(10)," +
+                                      "[CMND] NVARCHAR(10)," +
+                                      "HOTEN NVARCHAR(50)," +
+                                      "Nhom NVARCHAR(20));" +
+                                      "INSERT INTO @table1 " +
+                                      "EXEC frmTaoLogin_LayTKLGKH;" +
+                                      "SELECT * FROM @table1 WHERE [CMND] = '" + CMND + "'";
+
+                    using (SqlConnection connection = new SqlConnection(Program.connstr))
+                    {
+                        connection.Open();
+                        using (SqlCommand command1 = new SqlCommand(sqlQuery, connection))
+                        {
+                            using (SqlDataReader reader1 = command1.ExecuteReader())
+                            {
+                                if (reader1.HasRows)
+                                {
+                                    reader1.Read();
+                                    string taiKhoan = reader1.GetString(0);
+                                    string cmnd = reader1.GetString(1);
+                                    string cml = "EXEC SP_DROPUSER " + cmnd;
+                                    Program.ExecSqlNonQuery(cml);
+                                    string cml0 = "EXEC SP_DROPLOGIN " + taiKhoan;
+                                    Program.ExecSqlNonQuery(cml0);
+                                    bdsKH.RemoveCurrent();
+                                    this.KhachHangTableAdapter.Connection.ConnectionString = Program.connstr;
+                                    this.KhachHangTableAdapter.Update(this.DS.KhachHang);
+
+                                    MessageBox.Show("Xoá thành công !", "", MessageBoxButtons.OK);
+                                }
+                                else
+                                {
+                                    bdsKH.RemoveCurrent();
+                                    this.KhachHangTableAdapter.Connection.ConnectionString = Program.connstr;
+                                    this.KhachHangTableAdapter.Update(this.DS.KhachHang);
+
+                                    MessageBox.Show("Xoá thành công !", "", MessageBoxButtons.OK);
+                                }
+                            }
+                        }
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -310,8 +325,31 @@ namespace CSDLPT
                     return;
                 }
             }
-            if (bdsKH.Count == 0) btn_Xoa.Enabled = false;
+
+            if (bdsKH.Count == 0)
+            {
+                btn_Xoa.Enabled = false;
+            }
         }
+
+        private bool CheckTransactionChuyenTien(string cmnd)
+        {
+            string query = "SELECT SOTK FROM TaiKhoan WHERE CMND = '" + cmnd + "' AND (SOTK IN (SELECT SOTK_CHUYEN FROM GD_CHUYENTIEN) OR SOTK IN (SELECT SOTK_NHAN FROM GD_CHUYENTIEN))";
+            using (SqlDataReader reader = Program.ExecSqlDataReader(query))
+            {
+                return reader != null && reader.HasRows;
+            }
+        }
+
+        private bool CheckTransactionGoiRut(string cmnd)
+        {
+            string query = "SELECT SOTK FROM TaiKhoan WHERE CMND = '" + cmnd + "' AND SOTK IN (SELECT SOTK FROM GD_GOIRUT)";
+            using (SqlDataReader reader = Program.ExecSqlDataReader(query))
+            {
+                return reader != null && reader.HasRows;
+            }
+        }
+
 
         private void btn_PhucHoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {

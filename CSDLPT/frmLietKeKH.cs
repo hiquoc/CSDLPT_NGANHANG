@@ -80,6 +80,35 @@ namespace CSDLPT
 
             String macn = textCN.Text;
 
+            XRPLietKeKH rpt = new XRPLietKeKH();
+            rpt.lblTieuDe.Text = "DANH SÁCH TÀI KHOẢN CỦA CHI NHÁNH: " + macn.ToUpper();
+
+            try
+            {
+                string filePath = @"D:\Report_" + macn.Replace(" ", "_").ToUpper() + ".pdf";
+
+                if (System.IO.File.Exists(filePath))
+                {
+                    DialogResult result = MessageBox.Show("File đã tồn tại. Bạn có muốn ghi đè lên file không?", "Xác nhận", MessageBoxButtons.YesNo);
+                    if (result == DialogResult.No)
+                    {
+                        return;
+                    }
+                }
+
+                rpt.ExportToPdf(filePath);
+                MessageBox.Show("Báo cáo đã được lưu tại: " + filePath, "", MessageBoxButtons.OK);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi lưu báo cáo: " + ex.Message, "", MessageBoxButtons.OK);
+            }
+        }
+
+
+        private void btnXT_Click(object sender, EventArgs e)
+        {
+            String macn = textCN.Text;
 
             XRPLietKeKH rpt = new XRPLietKeKH();
             rpt.lblTieuDe.Text = "DANH SÁCH TÀI KHOẢN CỦA CHI NHÁNH: " + macn.ToUpper();

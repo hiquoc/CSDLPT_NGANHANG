@@ -16,7 +16,7 @@ namespace CSDLPT
         {
             DS.EnforceConstraints = false;
             this.TKTableAdapter.Connection.ConnectionString = Program.connstr;
-            this.TKTableAdapter.Fill(this.DS.TaiKhoan);
+            this.TKTableAdapter.FillByOne(this.DS.TaiKhoan, Program.tenChiNhanh);
 
             DataTable originalTable = (DataTable)Program.bds_dspm.DataSource;
             DataTable tableCopy = originalTable.Copy();
@@ -76,24 +76,15 @@ namespace CSDLPT
                 textCN.Text = "Cả 2 chi nhánh";
                 return;
             }
-            if (cmbChiNhanh.SelectedIndex != Program.mChinhanh)
+            if (cmbChiNhanh.Text == "Bến Thành")
             {
-                Program.mlogin = Program.remotelogin;
-                Program.password = Program.remotepassword;
-            }
-            else
-            {
-                Program.mlogin = Program.mloginDN;
-                Program.password = Program.passwordDN;
-            }
-            if (Program.KetNoi() == 0)
-            {
-                MessageBox.Show("Lỗi kết nối về chi nhánh mới!", "", MessageBoxButtons.OK);
+                this.TKTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.TKTableAdapter.FillByOne(this.DS.TaiKhoan, "BENTHANH");
             }
             else
             {
                 this.TKTableAdapter.Connection.ConnectionString = Program.connstr;
-                this.TKTableAdapter.Fill(this.DS.TaiKhoan);
+                this.TKTableAdapter.FillByOne(this.DS.TaiKhoan, "TANDINH");
             }
             if (cmbChiNhanh.Text.ToString() == "Bến Thành")
             {
@@ -142,8 +133,27 @@ namespace CSDLPT
                 rpt = new XRPLietKeTK("TANDINH", stringTuNgay, stringDenNgay);
                 rpt.lblTieuDe.Text = "DANH SÁCH TÀI KHOẢN ĐƯỢC TẠO\r\n CỦA CHI NHÁNH: TÂN ĐỊNH TỪ " + stringTuNgay + " ĐẾN " + stringDenNgay;
             }
-            ReportPrintTool print = new ReportPrintTool(rpt);
-            print.ShowPreviewDialog();
+
+            try
+            {
+                string filePath = @"D:\Report_" + macn.Replace(" ", "_") + "_" + stringTuNgay + "_to_" + stringDenNgay + ".pdf";
+
+                if (System.IO.File.Exists(filePath))
+                {
+                    DialogResult result = MessageBox.Show("File đã tồn tại. Bạn có muốn ghi đè lên file không?", "Xác nhận", MessageBoxButtons.YesNo);
+                    if (result == DialogResult.No)
+                    {
+                        return;
+                    }
+                }
+
+                rpt.ExportToPdf(filePath);
+                MessageBox.Show("Báo cáo đã được lưu tại: " + filePath, "", MessageBoxButtons.OK);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi lưu báo cáo: " + ex.Message, "", MessageBoxButtons.OK);
+            }
         }
 
         private void taiKhoanBindingNavigatorSaveItem_Click(object sender, EventArgs e)
@@ -157,6 +167,46 @@ namespace CSDLPT
         private void btnChon_Click(object sender, EventArgs e)
         {
             textCN.Text = ((DataRowView)bdsTK[bdsTK.Position])["SOTK"].ToString();
+        }
+
+        private void btnXT_Click(object sender, EventArgs e)
+        {
+            if (dateTuNgay.Value > DateTime.Today)
+            {
+                MessageBox.Show("Ngày không hợp lệ!", "", MessageBoxButtons.OK);
+                dateTuNgay.Focus();
+                return;
+            }
+            if (dateDenNgay.Value < dateTuNgay.Value)
+            {
+                MessageBox.Show("Ngày không hợp lệ!", "", MessageBoxButtons.OK);
+                dateDenNgay.Focus();
+                return;
+            }
+            String macn = textCN.Text;
+            DateTime TuNgay = dateTuNgay.Value;
+            string stringTuNgay = TuNgay.ToString("dd-MM-yyyy");
+            DateTime DenNgay = dateDenNgay.Value;
+            string stringDenNgay = DenNgay.ToString("dd-MM-yyyy");
+
+            XRPLietKeTK rpt;
+            if (macn == "Cả 2 chi nhánh")
+            {
+                rpt = new XRPLietKeTK("2CN", stringTuNgay, stringDenNgay);
+                rpt.lblTieuDe.Text = "DANH SÁCH TÀI KHOẢN ĐƯỢC TẠO CỦA CẢ 2 CHI NHÁNH\r\nTỪ " + stringTuNgay + " ĐẾN " + stringDenNgay;
+            }
+            else if (macn == "Bến Thành")
+            {
+                rpt = new XRPLietKeTK("BENTHANH", stringTuNgay, stringDenNgay);
+                rpt.lblTieuDe.Text = "DANH SÁCH TÀI KHOẢN ĐƯỢC TẠO\r\n CỦA CHI NHÁNH: BẾN THÀNH TỪ " + stringTuNgay + " ĐẾN " + stringDenNgay;
+            }
+            else
+            {
+                rpt = new XRPLietKeTK("TANDINH", stringTuNgay, stringDenNgay);
+                rpt.lblTieuDe.Text = "DANH SÁCH TÀI KHOẢN ĐƯỢC TẠO\r\n CỦA CHI NHÁNH: TÂN ĐỊNH TỪ " + stringTuNgay + " ĐẾN " + stringDenNgay;
+            }
+            ReportPrintTool print = new ReportPrintTool(rpt);
+            print.ShowPreviewDialog();
         }
     }
 }

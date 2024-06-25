@@ -24,8 +24,11 @@ namespace CSDLPT
                 case "NganHang":
                     rib_QuanLy.Visible = true;
                     ribBaoCao.Visible = true;
+                    ribNghiepVu.Visible = false;
                     ribSaoKe.Visible = false;
                     Program.frmChinh.btn_TaoTK.Enabled = true;
+                    Program.frmChinh.btn_TaoTKKH.Enabled = false;
+                    Program.frmChinh.MANV.Visible = true;
                     break;
                 case "ChiNhanh":
                     rib_QuanLy.Visible = true;
@@ -33,6 +36,8 @@ namespace CSDLPT
                     ribBaoCao.Visible = true;
                     ribSaoKe.Visible = false;
                     Program.frmChinh.btn_TaoTK.Enabled = true;
+                    Program.frmChinh.btn_TaoTKKH.Enabled = true;
+                    Program.frmChinh.MANV.Visible = true;
                     break;
                 case "KhachHang":
                     rib_QuanLy.Visible = false;
@@ -40,6 +45,8 @@ namespace CSDLPT
                     ribBaoCao.Visible = false;
                     ribSaoKe.Visible = true;
                     Program.frmChinh.btn_TaoTK.Enabled = false;
+                    Program.frmChinh.btn_TaoTKKH.Enabled = false;
+                    Program.frmChinh.MANV.Visible = false;
                     break;
             }
 
@@ -73,6 +80,9 @@ namespace CSDLPT
             btn_DangNhap.Enabled = true;
             btn_DangXuat.Enabled = false;
             rib_QuanLy.Visible = false;
+            ribNghiepVu.Visible = false;
+            ribBaoCao.Visible = false;
+            ribSaoKe.Visible = false;
             Program.frmChinh.btn_TaoTK.Enabled = false;
 
             Form f = this.CheckExists(typeof(frmDangNhap));
@@ -212,6 +222,18 @@ namespace CSDLPT
             else
             {
                 frmLietKeKH f = new frmLietKeKH();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void btn_TaoTKKH_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = CheckExists(typeof(frmTaoLoginKH));
+            if (frm != null) frm.Activate();
+            else
+            {
+                frmTaoLoginKH f = new frmTaoLoginKH();
                 f.MdiParent = this;
                 f.Show();
             }

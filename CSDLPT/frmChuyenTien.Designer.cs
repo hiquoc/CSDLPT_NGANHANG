@@ -68,6 +68,7 @@
             this.TKTableAdapter = new CSDLPT.DSTableAdapters.TaiKhoanTableAdapter();
             this.panelControl5 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl9 = new DevExpress.XtraEditors.PanelControl();
+            this.textST = new DevExpress.XtraEditors.TextEdit();
             this.btnGD_XacNhan = new DevExpress.XtraEditors.SimpleButton();
             this.textGD_MaNV = new System.Windows.Forms.TextBox();
             this.textGD_SoTien = new System.Windows.Forms.TextBox();
@@ -79,7 +80,7 @@
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl8 = new DevExpress.XtraEditors.PanelControl();
-            this.sODUTextBox1 = new System.Windows.Forms.TextBox();
+            this.textSoDu1 = new System.Windows.Forms.TextBox();
             this.LayTTTKNBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ho_va_tenTextBox1 = new System.Windows.Forms.TextBox();
             this.cMNDTextBox1 = new System.Windows.Forms.TextBox();
@@ -121,6 +122,7 @@
             this.panelControl5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl9)).BeginInit();
             this.panelControl9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textST.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl8)).BeginInit();
             this.panelControl8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LayTTTKNBindingSource)).BeginInit();
@@ -211,6 +213,7 @@
             this.gridView2.DetailHeight = 437;
             this.gridView2.GridControl = this.gcTK;
             this.gridView2.Name = "gridView2";
+            this.gridView2.OptionsBehavior.ReadOnly = true;
             // 
             // colSOTK
             // 
@@ -237,6 +240,8 @@
             this.colSODU.AppearanceCell.Options.UseTextOptions = true;
             this.colSODU.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colSODU.Caption = "Số dư";
+            this.colSODU.DisplayFormat.FormatString = "C2";
+            this.colSODU.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colSODU.FieldName = "SODU";
             this.colSODU.MinWidth = 31;
             this.colSODU.Name = "colSODU";
@@ -350,6 +355,9 @@
             this.gridView1.DetailHeight = 437;
             this.gridView1.GridControl = this.gcKH;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsBehavior.ReadOnly = true;
+            this.gridView1.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colMACN, DevExpress.Data.ColumnSortOrder.Ascending)});
             // 
             // colCMND
             // 
@@ -543,6 +551,7 @@
             // 
             // panelControl9
             // 
+            this.panelControl9.Controls.Add(this.textST);
             this.panelControl9.Controls.Add(this.btnGD_XacNhan);
             this.panelControl9.Controls.Add(this.textGD_MaNV);
             this.panelControl9.Controls.Add(this.textGD_SoTien);
@@ -559,6 +568,20 @@
             this.panelControl9.Name = "panelControl9";
             this.panelControl9.Size = new System.Drawing.Size(914, 260);
             this.panelControl9.TabIndex = 3;
+            // 
+            // textST
+            // 
+            this.textST.Location = new System.Drawing.Point(654, 93);
+            this.textST.Name = "textST";
+            this.textST.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textST.Properties.Appearance.Options.UseFont = true;
+            this.textST.Properties.DisplayFormat.FormatString = "{0:c}";
+            this.textST.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.textST.Properties.EditFormat.FormatString = "{0:c}";
+            this.textST.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.textST.Size = new System.Drawing.Size(150, 26);
+            this.textST.TabIndex = 10;
+            this.textST.EditValueChanged += new System.EventHandler(this.textST_EditValueChanged);
             // 
             // btnGD_XacNhan
             // 
@@ -587,11 +610,13 @@
             // textGD_SoTien
             // 
             this.textGD_SoTien.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textGD_SoTien.Location = new System.Drawing.Point(654, 78);
+            this.textGD_SoTien.Location = new System.Drawing.Point(654, 214);
             this.textGD_SoTien.Margin = new System.Windows.Forms.Padding(4);
             this.textGD_SoTien.Name = "textGD_SoTien";
             this.textGD_SoTien.Size = new System.Drawing.Size(150, 28);
             this.textGD_SoTien.TabIndex = 7;
+            this.textGD_SoTien.Visible = false;
+            this.textGD_SoTien.TextChanged += new System.EventHandler(this.textGD_SoTien_TextChanged);
             // 
             // textGD_TKN
             // 
@@ -606,7 +631,7 @@
             // textGD_TKC
             // 
             this.textGD_TKC.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textGD_TKC.Location = new System.Drawing.Point(314, 77);
+            this.textGD_TKC.Location = new System.Drawing.Point(314, 93);
             this.textGD_TKC.Margin = new System.Windows.Forms.Padding(4);
             this.textGD_TKC.Name = "textGD_TKC";
             this.textGD_TKC.ReadOnly = true;
@@ -617,7 +642,7 @@
             // 
             this.labelControl8.Appearance.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl8.Appearance.Options.UseFont = true;
-            this.labelControl8.Location = new System.Drawing.Point(533, 150);
+            this.labelControl8.Location = new System.Drawing.Point(558, 149);
             this.labelControl8.Margin = new System.Windows.Forms.Padding(4);
             this.labelControl8.Name = "labelControl8";
             this.labelControl8.Size = new System.Drawing.Size(74, 20);
@@ -628,7 +653,7 @@
             // 
             this.labelControl7.Appearance.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl7.Appearance.Options.UseFont = true;
-            this.labelControl7.Location = new System.Drawing.Point(533, 82);
+            this.labelControl7.Location = new System.Drawing.Point(558, 97);
             this.labelControl7.Margin = new System.Windows.Forms.Padding(4);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(50, 20);
@@ -650,7 +675,7 @@
             // 
             this.labelControl5.Appearance.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl5.Appearance.Options.UseFont = true;
-            this.labelControl5.Location = new System.Drawing.Point(144, 81);
+            this.labelControl5.Location = new System.Drawing.Point(144, 97);
             this.labelControl5.Margin = new System.Windows.Forms.Padding(4);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(130, 20);
@@ -670,7 +695,7 @@
             // 
             // panelControl8
             // 
-            this.panelControl8.Controls.Add(this.sODUTextBox1);
+            this.panelControl8.Controls.Add(this.textSoDu1);
             this.panelControl8.Controls.Add(this.ho_va_tenTextBox1);
             this.panelControl8.Controls.Add(this.cMNDTextBox1);
             this.panelControl8.Controls.Add(this.textSoTKN);
@@ -686,16 +711,17 @@
             this.panelControl8.Size = new System.Drawing.Size(914, 204);
             this.panelControl8.TabIndex = 2;
             // 
-            // sODUTextBox1
+            // textSoDu1
             // 
-            this.sODUTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LayTTTKNBindingSource, "SODU", true));
-            this.sODUTextBox1.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sODUTextBox1.Location = new System.Drawing.Point(654, 121);
-            this.sODUTextBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.sODUTextBox1.Name = "sODUTextBox1";
-            this.sODUTextBox1.ReadOnly = true;
-            this.sODUTextBox1.Size = new System.Drawing.Size(172, 28);
-            this.sODUTextBox1.TabIndex = 9;
+            this.textSoDu1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LayTTTKNBindingSource, "SODU", true));
+            this.textSoDu1.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textSoDu1.Location = new System.Drawing.Point(654, 121);
+            this.textSoDu1.Margin = new System.Windows.Forms.Padding(4);
+            this.textSoDu1.Name = "textSoDu1";
+            this.textSoDu1.ReadOnly = true;
+            this.textSoDu1.Size = new System.Drawing.Size(172, 28);
+            this.textSoDu1.TabIndex = 9;
+            this.textSoDu1.TextChanged += new System.EventHandler(this.textSoDu1_TextChanged);
             // 
             // LayTTTKNBindingSource
             // 
@@ -818,6 +844,7 @@
             this.textSoDu.ReadOnly = true;
             this.textSoDu.Size = new System.Drawing.Size(160, 28);
             this.textSoDu.TabIndex = 9;
+            this.textSoDu.TextChanged += new System.EventHandler(this.textSoDu_TextChanged);
             // 
             // LayTTTKCBindingSource
             // 
@@ -957,6 +984,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl9)).EndInit();
             this.panelControl9.ResumeLayout(false);
             this.panelControl9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textST.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl8)).EndInit();
             this.panelControl8.ResumeLayout(false);
             this.panelControl8.PerformLayout();
@@ -1042,9 +1070,10 @@
         private System.Windows.Forms.BindingSource LayTTTKNBindingSource;
         private DSTableAdapters.frmChuyenTien_LayTTTKNTableAdapter LayTTTKNTableAdapter;
         private System.Windows.Forms.TextBox textSoTKN;
-        private System.Windows.Forms.TextBox sODUTextBox1;
+        private System.Windows.Forms.TextBox textSoDu1;
         private System.Windows.Forms.TextBox ho_va_tenTextBox1;
         private System.Windows.Forms.TextBox cMNDTextBox1;
         private DevExpress.XtraEditors.SimpleButton btnChon3;
+        private DevExpress.XtraEditors.TextEdit textST;
     }
 }

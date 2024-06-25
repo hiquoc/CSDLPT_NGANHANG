@@ -144,6 +144,12 @@
     <Compile Include="frmTaoLogin.Designer.cs">
       <DependentUpon>frmTaoLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmTaoLoginKH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTaoLoginKH.Designer.cs">
+      <DependentUpon>frmTaoLoginKH.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="frmTaoTKKH.cs">
@@ -202,6 +208,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmTaoLogin.resx">
       <DependentUpon>frmTaoLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTaoLoginKH.resx">
+      <DependentUpon>frmTaoLoginKH.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

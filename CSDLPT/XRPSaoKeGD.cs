@@ -26,7 +26,6 @@ namespace CSDLPT
                 DateTime parsedTuNgay = DateTime.ParseExact(tungay, "dd-MM-yyyy", null);
                 DateTime parsedDenNgay = DateTime.ParseExact(denngay, "dd-MM-yyyy", null);
 
-                // Format dates as 'yyyy-MM-dd' for SQL Server
                 string formattedTuNgay = parsedTuNgay.ToString("yyyy-MM-dd");
                 string formattedDenNgay = parsedDenNgay.ToString("yyyy-MM-dd");
 

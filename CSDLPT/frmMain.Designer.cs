@@ -66,6 +66,7 @@
             this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.btnTransactionReport = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
+            this.btn_TaoTKKH = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
             this.statusStrip1.SuspendLayout();
@@ -93,10 +94,11 @@
             this.btnLietKeTK,
             this.btnLietKeKH,
             this.btnSaoKeGDUser,
-            this.btnSaoKe});
+            this.btnSaoKe,
+            this.btn_TaoTKKH});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.ribbonControl1.MaxItemId = 22;
+            this.ribbonControl1.MaxItemId = 23;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.OptionsMenuMinWidth = 550;
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -135,7 +137,7 @@
             // 
             // btn_TaoTK
             // 
-            this.btn_TaoTK.Caption = "Tạo Tài Khoản";
+            this.btn_TaoTK.Caption = "Tạo Tài Khoản Cho Nhân Viên";
             this.btn_TaoTK.Enabled = false;
             this.btn_TaoTK.Id = 5;
             this.btn_TaoTK.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btn_TaoTK.ImageOptions.LargeImage")));
@@ -261,6 +263,7 @@
             this.ribbonPageGroup1.ItemLinks.Add(this.btn_DangNhap);
             this.ribbonPageGroup1.ItemLinks.Add(this.btn_DangXuat);
             this.ribbonPageGroup1.ItemLinks.Add(this.btn_TaoTK);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btn_TaoTKKH);
             this.ribbonPageGroup1.ItemLinks.Add(this.btn_Thoat);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             // 
@@ -381,6 +384,16 @@
             // 
             this.barButtonItem4.Name = "barButtonItem4";
             // 
+            // btn_TaoTKKH
+            // 
+            this.btn_TaoTKKH.Caption = "Tạo Tài Khoản Cho Khách Hàng";
+            this.btn_TaoTKKH.Enabled = false;
+            this.btn_TaoTKKH.Id = 22;
+            this.btn_TaoTKKH.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem5.ImageOptions.Image")));
+            this.btn_TaoTKKH.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem5.ImageOptions.LargeImage")));
+            this.btn_TaoTKKH.Name = "btn_TaoTKKH";
+            this.btn_TaoTKKH.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_TaoTKKH_ItemClick);
+            // 
             // frmMain
             // 
             this.Appearance.Options.UseFont = true;
@@ -443,6 +456,7 @@
         private DevExpress.XtraBars.Ribbon.RibbonPage ribSaoKe;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
         private DevExpress.XtraBars.BarButtonItem barButtonItem4;
+        private DevExpress.XtraBars.BarButtonItem btn_TaoTKKH;
     }
 }
 

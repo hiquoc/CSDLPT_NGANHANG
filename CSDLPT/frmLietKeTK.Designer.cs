@@ -34,6 +34,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.btnIn = new DevExpress.XtraEditors.SimpleButton();
+            this.btnXT = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.dateDenNgay = new System.Windows.Forms.DateTimePicker();
             this.dateTuNgay = new System.Windows.Forms.DateTimePicker();
@@ -103,6 +104,7 @@
             // panelControl3
             // 
             this.panelControl3.Controls.Add(this.btnIn);
+            this.panelControl3.Controls.Add(this.btnXT);
             this.panelControl3.Controls.Add(this.labelControl5);
             this.panelControl3.Controls.Add(this.dateDenNgay);
             this.panelControl3.Controls.Add(this.dateTuNgay);
@@ -123,13 +125,27 @@
             this.btnIn.Appearance.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIn.Appearance.Options.UseBackColor = true;
             this.btnIn.Appearance.Options.UseFont = true;
-            this.btnIn.Location = new System.Drawing.Point(1615, 113);
+            this.btnIn.Location = new System.Drawing.Point(1665, 113);
             this.btnIn.Margin = new System.Windows.Forms.Padding(24);
             this.btnIn.Name = "btnIn";
-            this.btnIn.Size = new System.Drawing.Size(164, 51);
-            this.btnIn.TabIndex = 10;
+            this.btnIn.Size = new System.Drawing.Size(174, 51);
+            this.btnIn.TabIndex = 11;
             this.btnIn.Text = "In sao kê";
             this.btnIn.Click += new System.EventHandler(this.btnIn_Click);
+            // 
+            // btnXT
+            // 
+            this.btnXT.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Question;
+            this.btnXT.Appearance.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXT.Appearance.Options.UseBackColor = true;
+            this.btnXT.Appearance.Options.UseFont = true;
+            this.btnXT.Location = new System.Drawing.Point(1421, 113);
+            this.btnXT.Margin = new System.Windows.Forms.Padding(24);
+            this.btnXT.Name = "btnXT";
+            this.btnXT.Size = new System.Drawing.Size(174, 51);
+            this.btnXT.TabIndex = 10;
+            this.btnXT.Text = "Xem trước";
+            this.btnXT.Click += new System.EventHandler(this.btnXT_Click);
             // 
             // labelControl5
             // 
@@ -145,7 +161,7 @@
             // dateDenNgay
             // 
             this.dateDenNgay.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateDenNgay.Location = new System.Drawing.Point(1218, 128);
+            this.dateDenNgay.Location = new System.Drawing.Point(1039, 128);
             this.dateDenNgay.Margin = new System.Windows.Forms.Padding(10);
             this.dateDenNgay.Name = "dateDenNgay";
             this.dateDenNgay.Size = new System.Drawing.Size(253, 28);
@@ -154,17 +170,17 @@
             // dateTuNgay
             // 
             this.dateTuNgay.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTuNgay.Location = new System.Drawing.Point(709, 128);
+            this.dateTuNgay.Location = new System.Drawing.Point(619, 128);
             this.dateTuNgay.Margin = new System.Windows.Forms.Padding(10);
             this.dateTuNgay.Name = "dateTuNgay";
-            this.dateTuNgay.Size = new System.Drawing.Size(259, 28);
+            this.dateTuNgay.Size = new System.Drawing.Size(247, 28);
             this.dateTuNgay.TabIndex = 5;
             // 
             // labelControl4
             // 
             this.labelControl4.Appearance.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl4.Appearance.Options.UseFont = true;
-            this.labelControl4.Location = new System.Drawing.Point(1092, 134);
+            this.labelControl4.Location = new System.Drawing.Point(944, 134);
             this.labelControl4.Margin = new System.Windows.Forms.Padding(24);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(73, 20);
@@ -175,7 +191,7 @@
             // 
             this.labelControl3.Appearance.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl3.Appearance.Options.UseFont = true;
-            this.labelControl3.Location = new System.Drawing.Point(615, 134);
+            this.labelControl3.Location = new System.Drawing.Point(525, 134);
             this.labelControl3.Margin = new System.Windows.Forms.Padding(19);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(65, 20);
@@ -185,11 +201,11 @@
             // textCN
             // 
             this.textCN.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textCN.Location = new System.Drawing.Point(348, 126);
+            this.textCN.Location = new System.Drawing.Point(315, 126);
             this.textCN.Margin = new System.Windows.Forms.Padding(12);
             this.textCN.Name = "textCN";
             this.textCN.ReadOnly = true;
-            this.textCN.Size = new System.Drawing.Size(163, 28);
+            this.textCN.Size = new System.Drawing.Size(164, 28);
             this.textCN.TabIndex = 1;
             // 
             // labelControl2
@@ -255,6 +271,9 @@
             this.gridView1.DetailHeight = 682;
             this.gridView1.GridControl = this.gcTK;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsBehavior.ReadOnly = true;
+            this.gridView1.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colMACN, DevExpress.Data.ColumnSortOrder.Ascending)});
             // 
             // colSOTK
             // 
@@ -281,6 +300,8 @@
             this.colSODU.AppearanceCell.Options.UseTextOptions = true;
             this.colSODU.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colSODU.Caption = "Số dư";
+            this.colSODU.DisplayFormat.FormatString = "C2";
+            this.colSODU.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colSODU.FieldName = "SODU";
             this.colSODU.MinWidth = 49;
             this.colSODU.Name = "colSODU";
@@ -388,6 +409,7 @@
         private DSTableAdapters.TaiKhoanTableAdapter TKTableAdapter;
         private DSTableAdapters.TableAdapterManager tableAdapterManager;
         private DevExpress.XtraGrid.GridControl gcTK;
+        private DevExpress.XtraEditors.SimpleButton btnXT;
         private DevExpress.XtraEditors.SimpleButton btnIn;
     }
 }

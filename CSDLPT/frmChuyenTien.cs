@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Globalization;
 using System.Windows.Forms;
 
 namespace CSDLPT
@@ -13,6 +14,7 @@ namespace CSDLPT
         public frmChuyenTien()
         {
             InitializeComponent();
+            textST.EditValueChanged += textST_EditValueChanged;
         }
 
         private void khachHangBindingNavigatorSaveItem_Click(object sender, EventArgs e)
@@ -28,7 +30,7 @@ namespace CSDLPT
 
             DS.EnforceConstraints = false;
             this.KHTableAdapter.Connection.ConnectionString = Program.connstr;
-            this.KHTableAdapter.Fill(this.DS.KhachHang);
+            this.KHTableAdapter.FillAll(this.DS.KhachHang);
 
             cmbChiNhanh.DataSource = Program.bds_dspm;
             cmbChiNhanh.DisplayMember = "TENCN";
@@ -65,7 +67,7 @@ namespace CSDLPT
             {
                 textCMNDTim.Text = "";
                 btnChon.Enabled = true;
-                this.KHTableAdapter.Fill(this.DS.KhachHang);
+                this.KHTableAdapter.FillAll(this.DS.KhachHang);
             }
             catch (Exception ex)
             {
@@ -89,6 +91,16 @@ namespace CSDLPT
 
         private void btnChon2_Click(object sender, EventArgs e)
         {
+            string macn = "TANDINH";
+            if (cmbChiNhanh.Text.ToString() == "Bến Thành")
+            {
+                macn = "BENTHANH";
+            }
+            if (((DataRowView)bdsTK[bdsTK.Position])["MACN"].ToString().Trim() != macn)
+            {
+                MessageBox.Show("Không thể tạo giao dịch cho tài khoản không trùng chi nhánh!");
+                return;
+            }
             sotkc = ((DataRowView)bdsTK[bdsTK.Position])["SOTK"].ToString();
             if (sotkc == "")
             {
@@ -120,9 +132,9 @@ namespace CSDLPT
                 MessageBox.Show("Không thể chuyển cho bản thân!", "", MessageBoxButtons.OK);
                 return;
             }
-            DataRowView rowView = (DataRowView)bdsTK[bdsTK.Position];
+            /*DataRowView rowView = (DataRowView)bdsTK[bdsTK.Position];
             decimal soduMoney = (decimal)rowView["SODU"];
-            sodu = (int)soduMoney;
+            sodu = (int)soduMoney;*/
             this.LayTTTKNTableAdapter.Connection.ConnectionString = Program.connstr;
             this.LayTTTKNTableAdapter.Fill(this.DS.frmChuyenTien_LayTTTKN, sotkn);
 
@@ -130,19 +142,114 @@ namespace CSDLPT
 
         }
 
+        private void textST_EditValueChanged(object sender, EventArgs e)
+        {
+            if (int.TryParse(textST.Text, out int number))
+            {
+                string formattedNumber = number.ToString("#,##0");
+
+                formattedNumber += " đ";
+                textST.Text = formattedNumber;
+            }
+            else
+            {
+                textST.Text = "";
+            }
+        }
+
+        private void textSoDu_TextChanged(object sender, EventArgs e)
+        {
+            textSoDu.TextChanged -= textSoDu_TextChanged;
+
+            try
+            {
+                string input = textSoDu.Text;
+                input = input.Replace(".", "");
+                input = input.Replace(",", ".");
+                if (decimal.TryParse(input, NumberStyles.Any, CultureInfo.InvariantCulture, out decimal value))
+                {
+                    CultureInfo culture = new CultureInfo("vi-VN");
+                    string formattedValue = value.ToString("#,##0", culture);
+
+                    formattedValue += " đ";
+
+                    textSoDu.Text = formattedValue;
+                    textSoDu.SelectionStart = textSoDu.Text.Length;
+                }
+                else
+                {
+                    textSoDu.Clear();
+                }
+            }
+            catch
+            {
+                textSoDu.Clear();
+            }
+            finally
+            {
+                textSoDu.TextChanged += textSoDu_TextChanged;
+            }
+        }
+
+        private void textSoDu1_TextChanged(object sender, EventArgs e)
+        {
+            textSoDu1.TextChanged -= textSoDu1_TextChanged;
+
+            try
+            {
+                string input = textSoDu1.Text;
+                input = input.Replace(".", "");
+                input = input.Replace(",", ".");
+                if (decimal.TryParse(input, NumberStyles.Any, CultureInfo.InvariantCulture, out decimal value))
+                {
+                    CultureInfo culture = new CultureInfo("vi-VN");
+                    string formattedValue = value.ToString("#,##0", culture);
+
+                    formattedValue += " đ";
+
+                    textSoDu1.Text = formattedValue;
+                    textSoDu1.SelectionStart = textSoDu1.Text.Length;
+                }
+                else
+                {
+                    textSoDu1.Clear();
+                }
+            }
+            catch
+            {
+                textSoDu1.Clear();
+            }
+            finally
+            {
+                textSoDu1.TextChanged += textSoDu1_TextChanged;
+            }
+        }
+
+        private void textGD_SoTien_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void btnGD_XacNhan_Click(object sender, EventArgs e)
         {
-            if (textGD_SoTien.Text == "")
+            string sotien = "";
+            string formattedText = textST.Text;
+            formattedText = formattedText.Replace(",", "").Replace(".", "").Replace(" ", "").Replace("đ", "");
+            if (int.TryParse(formattedText, out int number))
+            {
+                sotien = number.ToString();
+            }
+            if (sotien == "")
             {
                 MessageBox.Show("Hãy nhập số tiền giao dịch!", "", MessageBoxButtons.OK);
                 return;
             }
-            if (int.Parse(textGD_SoTien.Text.Trim()) <= 0)
+            if (int.Parse(sotien) <= 0)
             {
                 MessageBox.Show("Số tiền giao dịch phải lớn hơn 0!", "", MessageBoxButtons.OK);
                 return;
             }
-            if (int.Parse(textGD_SoTien.Text.Trim()) > sodu)
+            if (int.Parse(sotien) > sodu)
             {
                 MessageBox.Show("Số tiền giao dịch lớn hơn số dư của tài khoản!", "", MessageBoxButtons.OK);
                 return;
@@ -150,11 +257,10 @@ namespace CSDLPT
             try
             {
                 string dt = String.Format("{0:yyyy-MM-dd HH:mm:ss.fff}", DateTime.Now);
-                string cml = "EXEC frmChuyenTien_thuchienGD '" + sotkc.TrimEnd() + "', '" + sotkn.TrimEnd() + "', '" + int.Parse(textGD_SoTien.Text.Trim()) + "', '" + dt + "', '" + textGD_MaNV.Text.TrimEnd() + "'";
+                string cml = "EXEC frmChuyenTien_thuchienGD '" + sotkc.TrimEnd() + "', '" + sotkn.TrimEnd() + "', '" + int.Parse(sotien) + "', '" + dt + "', '" + textGD_MaNV.Text.TrimEnd() + "'";
                 Program.ExecSqlNonQuery(cml);
-                this.TKTableAdapter.FillBy(this.DS.TaiKhoan, cmnd);
-                this.LayTTTKCTableAdapter.Fill(this.DS.frmChuyenTien_LayTTTKC, sotkc);
-                textGD_SoTien.Text = "0";
+                UpdateData();
+                textST.Text = "0";
                 MessageBox.Show("Thực hiện giao dịch thành công! ", "", MessageBoxButtons.OK);
                 decimal soduMoney = (decimal)this.TKTableAdapter.GetSoDu(sotkc);
                 sodu = (int)soduMoney;
@@ -165,7 +271,24 @@ namespace CSDLPT
                 return;
             }
 
-
+            void UpdateData()
+            {
+                try
+                {
+                    this.TKTableAdapter.FillBy(this.DS.TaiKhoan, cmnd);
+                    textSoDu.Text = TKTableAdapter.GetSoDu(sotkc).ToString();
+                    textSoDu1.Text = TKTableAdapter.GetSoDu(sotkn).ToString();
+                    /*this.LayTTTKCTableAdapter.Connection.ConnectionString = Program.connstr;
+                    this.LayTTTKCTableAdapter.Fill(this.DS.frmChuyenTien_LayTTTKC, textSoTKC.Text);
+                    this.LayTTTKNTableAdapter.Connection.ConnectionString = Program.connstr;
+                    this.LayTTTKNTableAdapter.Fill(this.DS.frmChuyenTien_LayTTTKN, textSoTKN.Text);*/
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi khi cập nhật dữ liệu: " + ex.Message, "", MessageBoxButtons.OK);
+                }
+            }
         }
     }
+
 }
